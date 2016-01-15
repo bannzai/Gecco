@@ -10,6 +10,15 @@
 		467D20611C48883C0033D5CA /* Spot.h in Headers */ = {isa = PBXBuildFile; fileRef = 467D20601C48883C0033D5CA /* Spot.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		467D20681C48883C0033D5CA /* Spot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467D205D1C48883C0033D5CA /* Spot.framework */; };
 		467D206D1C48883C0033D5CA /* SpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D206C1C48883C0033D5CA /* SpotTests.swift */; };
+		467D20841C488C920033D5CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20831C488C920033D5CA /* AppDelegate.swift */; };
+		467D20861C488C920033D5CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20851C488C920033D5CA /* ViewController.swift */; };
+		467D20891C488C920033D5CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467D20871C488C920033D5CA /* Main.storyboard */; };
+		467D208B1C488C920033D5CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 467D208A1C488C920033D5CA /* Assets.xcassets */; };
+		467D208E1C488C920033D5CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467D208C1C488C920033D5CA /* LaunchScreen.storyboard */; };
+		467D20B31C488D620033D5CA /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B21C488D620033D5CA /* SpotlightViewController.swift */; };
+		467D20B51C4894F20033D5CA /* SpotlightTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B41C4894F20033D5CA /* SpotlightTransitionType.swift */; };
+		467D20B71C48FB920033D5CA /* SpotlightAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B61C48FB920033D5CA /* SpotlightAnimator.swift */; };
+		467D20B81C48FB920033D5CA /* SpotlightAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B61C48FB920033D5CA /* SpotlightAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +38,16 @@
 		467D20671C48883C0033D5CA /* SpotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D206C1C48883C0033D5CA /* SpotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTests.swift; sourceTree = "<group>"; };
 		467D206E1C48883C0033D5CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		467D20811C488C920033D5CA /* SpotExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		467D20831C488C920033D5CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		467D20851C488C920033D5CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		467D20881C488C920033D5CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		467D208A1C488C920033D5CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		467D208D1C488C920033D5CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		467D208F1C488C920033D5CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		467D20B21C488D620033D5CA /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
+		467D20B41C4894F20033D5CA /* SpotlightTransitionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightTransitionType.swift; sourceTree = "<group>"; };
+		467D20B61C48FB920033D5CA /* SpotlightAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,14 +66,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		467D207E1C488C920033D5CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		467D20531C48883C0033D5CA = {
 			isa = PBXGroup;
 			children = (
+				467D20781C48889F0033D5CA /* Classes */,
 				467D205F1C48883C0033D5CA /* Spot */,
 				467D206B1C48883C0033D5CA /* SpotTests */,
+				467D20821C488C920033D5CA /* SpotExample */,
 				467D205E1C48883C0033D5CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +92,7 @@
 			children = (
 				467D205D1C48883C0033D5CA /* Spot.framework */,
 				467D20671C48883C0033D5CA /* SpotTests.xctest */,
+				467D20811C488C920033D5CA /* SpotExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +113,29 @@
 				467D206E1C48883C0033D5CA /* Info.plist */,
 			);
 			path = SpotTests;
+			sourceTree = "<group>";
+		};
+		467D20781C48889F0033D5CA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				467D20B61C48FB920033D5CA /* SpotlightAnimator.swift */,
+				467D20B21C488D620033D5CA /* SpotlightViewController.swift */,
+				467D20B41C4894F20033D5CA /* SpotlightTransitionType.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		467D20821C488C920033D5CA /* SpotExample */ = {
+			isa = PBXGroup;
+			children = (
+				467D20831C488C920033D5CA /* AppDelegate.swift */,
+				467D20851C488C920033D5CA /* ViewController.swift */,
+				467D20871C488C920033D5CA /* Main.storyboard */,
+				467D208A1C488C920033D5CA /* Assets.xcassets */,
+				467D208C1C488C920033D5CA /* LaunchScreen.storyboard */,
+				467D208F1C488C920033D5CA /* Info.plist */,
+			);
+			path = SpotExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +188,23 @@
 			productReference = 467D20671C48883C0033D5CA /* SpotTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		467D20801C488C920033D5CA /* SpotExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 467D20A61C488C930033D5CA /* Build configuration list for PBXNativeTarget "SpotExample" */;
+			buildPhases = (
+				467D207D1C488C920033D5CA /* Sources */,
+				467D207E1C488C920033D5CA /* Frameworks */,
+				467D207F1C488C920033D5CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpotExample;
+			productName = SpotExample;
+			productReference = 467D20811C488C920033D5CA /* SpotExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -152,6 +221,9 @@
 					467D20661C48883C0033D5CA = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
+					467D20801C488C920033D5CA = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
 				};
 			};
 			buildConfigurationList = 467D20571C48883C0033D5CA /* Build configuration list for PBXProject "Spot" */;
@@ -160,6 +232,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 467D20531C48883C0033D5CA;
 			productRefGroup = 467D205E1C48883C0033D5CA /* Products */;
@@ -168,6 +241,7 @@
 			targets = (
 				467D205C1C48883C0033D5CA /* Spot */,
 				467D20661C48883C0033D5CA /* SpotTests */,
+				467D20801C488C920033D5CA /* SpotExample */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +261,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		467D207F1C488C920033D5CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				467D208E1C488C920033D5CA /* LaunchScreen.storyboard in Resources */,
+				467D208B1C488C920033D5CA /* Assets.xcassets in Resources */,
+				467D20891C488C920033D5CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -194,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				467D20B71C48FB920033D5CA /* SpotlightAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +287,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				467D206D1C48883C0033D5CA /* SpotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		467D207D1C488C920033D5CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				467D20B31C488D620033D5CA /* SpotlightViewController.swift in Sources */,
+				467D20B81C48FB920033D5CA /* SpotlightAnimator.swift in Sources */,
+				467D20861C488C920033D5CA /* ViewController.swift in Sources */,
+				467D20B51C4894F20033D5CA /* SpotlightTransitionType.swift in Sources */,
+				467D20841C488C920033D5CA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +311,25 @@
 			targetProxy = 467D20691C48883C0033D5CA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		467D20871C488C920033D5CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				467D20881C488C920033D5CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		467D208C1C488C920033D5CA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				467D208D1C488C920033D5CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		467D206F1C48883C0033D5CA /* Debug */ = {
@@ -308,28 +424,33 @@
 		467D20721C48883C0033D5CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Spot/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.Spot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		467D20731C48883C0033D5CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Spot/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.Spot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +474,28 @@
 				INFOPLIST_FILE = SpotTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.SpotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		467D20A71C488C930033D5CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpotExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.SpotExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		467D20A81C488C930033D5CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpotExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.SpotExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -382,6 +525,14 @@
 			buildConfigurations = (
 				467D20751C48883C0033D5CA /* Debug */,
 				467D20761C48883C0033D5CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		467D20A61C488C930033D5CA /* Build configuration list for PBXNativeTarget "SpotExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				467D20A71C488C930033D5CA /* Debug */,
+				467D20A81C488C930033D5CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
