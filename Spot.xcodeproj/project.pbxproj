@@ -19,6 +19,8 @@
 		467D20B51C4894F20033D5CA /* SpotlightTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B41C4894F20033D5CA /* SpotlightTransitionType.swift */; };
 		467D20B71C48FB920033D5CA /* SpotlightAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B61C48FB920033D5CA /* SpotlightAnimator.swift */; };
 		467D20B81C48FB920033D5CA /* SpotlightAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B61C48FB920033D5CA /* SpotlightAnimator.swift */; };
+		46A637211C49CEB00000AF22 /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
+		46A637221C49D06B0000AF22 /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,7 @@
 		467D20B21C488D620033D5CA /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
 		467D20B41C4894F20033D5CA /* SpotlightTransitionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightTransitionType.swift; sourceTree = "<group>"; };
 		467D20B61C48FB920033D5CA /* SpotlightAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightAnimator.swift; sourceTree = "<group>"; };
+		46A637201C49CEB00000AF22 /* SpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				467D20B61C48FB920033D5CA /* SpotlightAnimator.swift */,
+				46A637201C49CEB00000AF22 /* SpotlightView.swift */,
 				467D20B21C488D620033D5CA /* SpotlightViewController.swift */,
 				467D20B41C4894F20033D5CA /* SpotlightTransitionType.swift */,
 			);
@@ -279,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				467D20B71C48FB920033D5CA /* SpotlightAnimator.swift in Sources */,
+				46A637211C49CEB00000AF22 /* SpotlightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +304,7 @@
 				467D20861C488C920033D5CA /* ViewController.swift in Sources */,
 				467D20B51C4894F20033D5CA /* SpotlightTransitionType.swift in Sources */,
 				467D20841C488C920033D5CA /* AppDelegate.swift in Sources */,
+				46A637221C49D06B0000AF22 /* SpotlightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +525,7 @@
 				467D20731C48883C0033D5CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		467D20741C48883C0033D5CA /* Build configuration list for PBXNativeTarget "SpotTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +534,7 @@
 				467D20761C48883C0033D5CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		467D20A61C488C930033D5CA /* Build configuration list for PBXNativeTarget "SpotExample" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +543,7 @@
 				467D20A81C488C930033D5CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
