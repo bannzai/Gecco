@@ -9,8 +9,7 @@
 import UIKit
 
 class SpotlightView: UIView {
-    
-    var spotlight = Spotlight(center: CGPointZero, width: 100)
+    var spotlight = Spotlight.Oval(center: CGPointZero, width: 100)
     
     private lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
@@ -55,27 +54,16 @@ class SpotlightView: UIView {
 }
 
 extension SpotlightView {
-    private var infinityPath: UIBezierPath {
-        return [spotlight].reduce(UIBezierPath(rect: frame)) {
-            let width = CGFloat(2000)
-            let center = CGPointMake($1.frame.midX, $1.frame.midY)
-            let size = CGSizeMake(width, width)
-            let scaledRect = CGRectMake(center.x - size.width / 2, center.y - size.height / 2, size.width, size.height)
-            $0.appendPath(UIBezierPath(ovalInRect: scaledRect))
-            return $0
-        }
-    }
-    
     private var infinitesmalPath: UIBezierPath {
         return [spotlight].reduce(UIBezierPath(rect: frame)) {
-            $0.appendPath(UIBezierPath(ovalInRect: CGRect(origin: $1.center, size: CGSizeZero)))
+            $0.appendPath($1.path)
             return $0
         }
     }
     
     private var spotlightPath: UIBezierPath {
         return [spotlight].reduce(UIBezierPath(rect: frame)) {
-            $0.appendPath(UIBezierPath(ovalInRect: $1.frame))
+            $0.appendPath($1.path)
             return $0
         }
     }

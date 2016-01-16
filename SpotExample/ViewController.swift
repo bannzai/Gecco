@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         let viewController = SpotlightViewController()
-        viewController.spotlight = Spotlight(center: CGPointMake(150, 70), width: 80)
+        viewController.spotlight = Spotlight.Oval(center: CGPointMake(150, 70), width: 80)
         presentViewController(viewController, animated: true, completion: nil)
     }
 

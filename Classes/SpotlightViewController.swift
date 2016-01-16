@@ -89,11 +89,3 @@ extension SpotlightViewController: UIViewControllerAnimatedTransitioning {
     }
 }
 
-public struct Spotlight {
-    var center: CGPoint
-    var width: CGFloat
-    
-    var frame: CGRect {
-        return CGRectMake(center.x - width / 2, center.y - width / 2, width, width)
-    }
-}
