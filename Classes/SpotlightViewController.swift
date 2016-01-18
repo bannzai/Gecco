@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
+public protocol SpotlightViewControllerDelegate: class {
+    func spotlightViewControllerTapped(viewController: SpotlightViewController)
+}
+
 public class SpotlightViewController: UIViewController {
+    
+    public var delegate: SpotlightViewControllerDelegate?
     
     private var isPresent = false
     
@@ -49,8 +55,7 @@ public class SpotlightViewController: UIViewController {
     }
     
     func viewTapped(gesture: UITapGestureRecognizer) {
-        //### TEST
-        dismissViewControllerAnimated(true, completion: nil)
+        delegate?.spotlightViewControllerTapped(self)
     }
 }
 
