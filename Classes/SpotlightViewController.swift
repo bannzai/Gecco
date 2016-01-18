@@ -13,9 +13,6 @@ public class SpotlightViewController: UIViewController {
     
     private var transitioning = false
     
-    public var presentTransitionType = SpotlightTransitionType.Infinitesimal
-    public var dismissTransitionType = SpotlightTransitionType.Infinity
-    
     lazy var spotlightView: SpotlightView = {
         let view = SpotlightView(frame: self.view.frame)
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
