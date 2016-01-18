@@ -9,11 +9,7 @@
 import UIKit
 
 class SpotlightView: UIView {
-    var spotlight = Spotlight.Oval(center: CGPointZero, width: 100) {
-        didSet {
-            move(0, fromSpotlight: oldValue, toSpotlight: spotlight)
-        }
-    }
+    var spotlight = Spotlight.Oval(center: CGPointZero, width: 100)
     
     private lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
@@ -51,7 +47,7 @@ class SpotlightView: UIView {
         switch moveType {
         case .Direct:
             moveDirect(duration, fromSpotlight: fromSpotlight, toSpotlight: toSpotlight)
-        case .Disapper:
+        case .Disappear:
             moveDisappear(duration, fromSpotlight: fromSpotlight, toSpotlight: toSpotlight)
         }
     }
@@ -60,12 +56,14 @@ class SpotlightView: UIView {
 extension SpotlightView {
     private func moveDirect(duration: NSTimeInterval, fromSpotlight: Spotlight?, toSpotlight: Spotlight) {
         maskLayer.addAnimation(moveAnimation(duration, fromSpotlight: fromSpotlight, toSpotlight: toSpotlight), forKey: nil)
+        spotlight = toSpotlight
     }
     
     private func moveDisappear(duration: NSTimeInterval, fromSpotlight: Spotlight?, toSpotlight: Spotlight) {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             self.appear(duration, spotlight: toSpotlight)
+            self.spotlight = toSpotlight
         }
         disappear(duration, spotlight: fromSpotlight)
         CATransaction.commit()
@@ -115,5 +113,5 @@ extension SpotlightView {
 
 public enum SpotlightMoveType {
     case Direct
-    case Disapper
+    case Disappear
 }
