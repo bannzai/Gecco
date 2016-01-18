@@ -19,6 +19,7 @@ public class SpotlightViewController: UIViewController {
     lazy var spotlightView: SpotlightView = {
         let view = SpotlightView(frame: self.view.frame)
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        view.userInteractionEnabled = false
         self.view.addSubview(view)
         self.view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
             NSLayoutConstraint(item: self.view, attribute: $0, relatedBy: .Equal, toItem: view, attribute: $0, multiplier: 1, constant: 0)
@@ -37,10 +38,23 @@ public class SpotlightViewController: UIViewController {
         view.backgroundColor = UIColor.clearColor()
         modalPresentationStyle = .OverCurrentContext
         transitioningDelegate = self
+        
+        setupTapGesture()
     }
     
     public override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    private func setupTapGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: "viewTapped:");
+        view.addGestureRecognizer(gesture)
+    }
+    
+    func viewTapped(gesture: UITapGestureRecognizer) {
+        //### TEST
+        spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: .Oval(center: CGPointZero, width: 100))
+//        spotlightView.disappear(0.25)
     }
 }
 
@@ -80,9 +94,11 @@ extension SpotlightViewController: UIViewControllerAnimatedTransitioning {
             completion: { _ in
                 destination.viewDidAppear(true)
                 source.viewDidDisappear(true)
+                
+                transitionContext.completeTransition(true)
             }
         )
-        spotlightView.showSpotlight(duration)
+        spotlightView.appear(duration)
     }
     
     public func animationEnded(transitionCompleted: Bool) {

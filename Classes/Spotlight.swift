@@ -8,15 +8,6 @@
 
 import UIKit
 
-//public struct Spotlight {
-//    var center: CGPoint
-//    var width: CGFloat
-//    
-//    var frame: CGRect {
-//        return CGRectMake(center.x - width / 2, center.y - width / 2, width, width)
-//    }
-//}
-
 public enum Spotlight {
     case Oval(center: CGPoint, width: CGFloat)
     case Rect(center: CGPoint, size: CGSize)
