@@ -26,9 +26,9 @@ class AnnotationViewController: SpotlightViewController {
         stepIndex++
         switch stepIndex {
         case 1:
-            spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: Spotlight.Oval(center: CGPointMake(300, 42), width: 50))
+            spotlightView.move(Spotlight.Oval(center: CGPointMake(300, 42), width: 50))
         case 2:
-            spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: Spotlight.RoundedRect(center: CGPointMake(375 / 2, 42), size: CGSizeMake(120, 40), radius: 6), moveType: .Disappear)
+            spotlightView.move(Spotlight.RoundedRect(center: CGPointMake(375 / 2, 42), size: CGSizeMake(120, 40), radius: 6), moveType: .Disappear)
         case 3:
             dismissViewControllerAnimated(true, completion: nil)
         default:

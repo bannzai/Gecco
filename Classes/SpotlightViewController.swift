@@ -76,11 +76,11 @@ extension SpotlightViewController {
 
 extension SpotlightViewController: SpotlightTransitionControllerDelegate {
     func spotlightTransitionWillPresent(controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
-        spotlightView.appear(controller.transitionDuration(transitionContext))
+        spotlightView.appear(duration: controller.transitionDuration(transitionContext))
     }
     
     func spotlightTransitionWillDismiss(controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
-        spotlightView.disappear(controller.transitionDuration(transitionContext))
+        spotlightView.disappear(duration: controller.transitionDuration(transitionContext))
     }
 }
 
