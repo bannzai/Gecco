@@ -62,6 +62,6 @@ public enum Spotlight {
     }
     
     func frameWith(center: CGPoint, size: CGSize) -> CGRect {
-        return CGRectMake(center.x - size.width / 2, center.y - size.height / 2, size.width, size.width)
+        return CGRectMake(center.x - size.width / 2, center.y - size.height / 2, size.width, size.height)
     }
 }
