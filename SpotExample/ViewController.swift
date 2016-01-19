@@ -30,9 +30,9 @@ class ViewController: UIViewController {
         case 0:
             presentSpotlight()
         case 1:
-            spotlightViewController?.spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: Spotlight.Oval(center: CGPointMake(250, 320), width: 160))
+            spotlightViewController?.spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: Spotlight.Oval(center: CGPointMake(300, 42), width: 50))
         case 2:
-            spotlightViewController?.spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: Spotlight.Oval(center: CGPointMake(150, 520), width: 60), moveType: .Disappear)
+            spotlightViewController?.spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: Spotlight.Oval(center: CGPointMake(375 / 2, 320), width: 200), moveType: .Disappear)
         case 3:
             dismissSpotlight()
         default:
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     
     func presentSpotlight() {
         let viewController = SpotlightViewController()
-        viewController.spotlight = Spotlight.Oval(center: CGPointMake(150, 70), width: 80)
+        viewController.spotlight = Spotlight.Oval(center: CGPointMake(349, 42), width: 50)
         viewController.delegate = self
         presentViewController(viewController, animated: true, completion: nil)
         

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SyE-ND-Vfn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Gecco-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SpotExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Source View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXd-3z-unp">
-                                <rect key="frame" x="73" y="36" width="176" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EnQ-nl-eHL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-dw-II0">
                                 <rect key="frame" x="128" y="221" width="64" height="64"/>
                                 <animations/>
@@ -40,17 +37,52 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EnQ-nl-eHL" secondAttribute="trailing" id="6FZ-oF-PfX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fbk-dw-II0" secondAttribute="bottom" constant="35" id="6ZA-ml-TjY"/>
                             <constraint firstItem="Fbk-dw-II0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KZF-tb-ibU"/>
-                            <constraint firstItem="FXd-3z-unp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="c2X-qS-hL6"/>
-                            <constraint firstItem="FXd-3z-unp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zgH-Pj-ANk"/>
+                            <constraint firstItem="EnQ-nl-eHL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MG2-tV-gbu"/>
+                            <constraint firstAttribute="bottom" secondItem="EnQ-nl-eHL" secondAttribute="bottom" id="kyX-kr-lQa"/>
+                            <constraint firstItem="EnQ-nl-eHL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xcu-pD-sJA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Gecco" id="zxK-rg-8Cj">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="U1j-TV-IbH">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="lrK-jk-aNz">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="320"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="551" y="542"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8Xw-SP-YLq">
+            <objects>
+                <navigationController id="SyE-ND-Vfn" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="320"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HWj-2a-Xqg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.1943302621783132" blue="0.59937405873493921" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="beb-cO-HS9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JdC-tF-MOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="177" y="542"/>
         </scene>
     </scenes>
 </document>
