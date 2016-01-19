@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     
     func presentAnnotation() {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Annotation") as! AnnotationViewController
-        viewController.spotlight = Spotlight.Oval(center: CGPointMake(349, 42), width: 50)
         presentViewController(viewController, animated: true, completion: nil)
         annotationViewController = viewController
     }

@@ -22,11 +22,15 @@ public class SpotlightView: UIView {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        layer.mask = maskLayer
+        commonInit()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         layer.mask = maskLayer
     }
     

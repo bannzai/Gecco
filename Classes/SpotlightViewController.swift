@@ -22,44 +22,60 @@ public class SpotlightViewController: UIViewController {
         return controller
     }()
     
-    public lazy var spotlightView: SpotlightView = {
-        let view = SpotlightView(frame: self.view.frame)
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-        view.userInteractionEnabled = false
-        self.view.insertSubview(view, atIndex: 0)
-        self.view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
-            NSLayoutConstraint(item: self.view, attribute: $0, relatedBy: .Equal, toItem: view, attribute: $0, multiplier: 1, constant: 0)
-            })
-        return view
-    }()
-    
-    public lazy var contentView: UIView = {
-        let view = UIView(frame: self.view.frame)
-        view.backgroundColor = UIColor.clearColor()
-        self.view.addSubview(view)
-        self.view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
-            NSLayoutConstraint(item: self.view, attribute: $0, relatedBy: .Equal, toItem: view, attribute: $0, multiplier: 1, constant: 0)
-            })
-        return view
-    }()
+    public let spotlightView = SpotlightView()
+    public let contentView = UIView()
     
     public var spotlight: Spotlight {
         get { return spotlightView.spotlight }
         set { spotlightView.spotlight = newValue }
     }
     
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        commonInit()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        modalPresentationStyle = .OverCurrentContext
+        transitioningDelegate = self
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.clearColor()
-        modalPresentationStyle = .OverCurrentContext
-        transitioningDelegate = self
-        
+        setupSpotlightView()
+        setupContentView()
         setupTapGesture()
+        
+        view.backgroundColor = UIColor.clearColor()
     }
     
     public override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    private func setupSpotlightView() {
+        spotlightView.frame = view.bounds
+        spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        spotlightView.userInteractionEnabled = false
+        view.insertSubview(spotlightView, atIndex: 0)
+        view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
+            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .Equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
+            })
+    }
+    
+    private func setupContentView() {
+        contentView.frame = view.bounds
+        contentView.backgroundColor = UIColor.clearColor()
+        view.addSubview(contentView)
+        view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
+            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .Equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
+            })
     }
     
     private func setupTapGesture() {

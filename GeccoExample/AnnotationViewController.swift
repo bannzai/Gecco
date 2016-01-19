@@ -19,12 +19,13 @@ class AnnotationViewController: SpotlightViewController {
         
         delegate = self
         
-        updateAnnotationView(false)
+        next(false)
     }
     
-    func next() {
-        stepIndex++
+    func next(animated: Bool) {
         switch stepIndex {
+        case 0:
+            spotlight = Spotlight.Oval(center: CGPointMake(349, 42), width: 50)
         case 1:
             spotlightView.move(Spotlight.Oval(center: CGPointMake(300, 42), width: 50))
         case 2:
@@ -32,12 +33,13 @@ class AnnotationViewController: SpotlightViewController {
         case 3:
             spotlightView.move(Spotlight.Oval(center: CGPointMake(375 / 2, 200), width: 220), moveType: .Disappear)
         case 4:
-            dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(animated, completion: nil)
         default:
             break
         }
+        updateAnnotationView(animated)
         
-        updateAnnotationView(true)
+        stepIndex++
     }
     
     func updateAnnotationView(animated: Bool) {
@@ -51,6 +53,6 @@ class AnnotationViewController: SpotlightViewController {
 
 extension AnnotationViewController: SpotlightViewControllerDelegate {
     func spotlightViewControllerTapped(viewController: SpotlightViewController) {
-        next()
+        next(true)
     }
 }

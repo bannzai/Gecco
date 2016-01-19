@@ -23,13 +23,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-dw-II0">
-                                <rect key="frame" x="256" y="256" width="64" height="64"/>
+                                <rect key="frame" x="215" y="274" width="89" height="30"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Kma-bZ-hmu"/>
-                                    <constraint firstAttribute="width" constant="64" id="aW8-5s-Pvj"/>
-                                </constraints>
-                                <state key="normal" title="Start">
+                                <state key="normal" title="Start Tutorial">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -41,9 +37,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EnQ-nl-eHL" secondAttribute="trailing" id="6FZ-oF-PfX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fbk-dw-II0" secondAttribute="bottom" id="6ZA-ml-TjY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fbk-dw-II0" secondAttribute="bottom" constant="16" id="6ZA-ml-TjY"/>
                             <constraint firstItem="EnQ-nl-eHL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MG2-tV-gbu"/>
-                            <constraint firstAttribute="trailing" secondItem="Fbk-dw-II0" secondAttribute="trailing" id="g9D-lZ-Ml0"/>
+                            <constraint firstAttribute="trailing" secondItem="Fbk-dw-II0" secondAttribute="trailing" constant="16" id="g9D-lZ-Ml0"/>
                             <constraint firstAttribute="bottom" secondItem="EnQ-nl-eHL" secondAttribute="bottom" id="kyX-kr-lQa"/>
                             <constraint firstItem="EnQ-nl-eHL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xcu-pD-sJA"/>
                         </constraints>
