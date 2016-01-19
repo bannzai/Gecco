@@ -16,6 +16,8 @@
 		467D208B1C488C920033D5CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 467D208A1C488C920033D5CA /* Assets.xcassets */; };
 		467D208E1C488C920033D5CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467D208C1C488C920033D5CA /* LaunchScreen.storyboard */; };
 		467D20B31C488D620033D5CA /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B21C488D620033D5CA /* SpotlightViewController.swift */; };
+		467D20BC1C4DBF810033D5CA /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
+		467D20BD1C4DBF900033D5CA /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
 		46A637211C49CEB00000AF22 /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
 		46A637221C49D06B0000AF22 /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
 		46A637241C4B07EB0000AF22 /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637231C4B07EB0000AF22 /* Spotlight.swift */; };
@@ -47,6 +49,7 @@
 		467D208D1C488C920033D5CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		467D208F1C488C920033D5CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		467D20B21C488D620033D5CA /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
+		467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightTransitionController.swift; sourceTree = "<group>"; };
 		46A637201C49CEB00000AF22 /* SpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightView.swift; sourceTree = "<group>"; };
 		46A637231C4B07EB0000AF22 /* Spotlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spotlight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +125,7 @@
 				46A637231C4B07EB0000AF22 /* Spotlight.swift */,
 				46A637201C49CEB00000AF22 /* SpotlightView.swift */,
 				467D20B21C488D620033D5CA /* SpotlightViewController.swift */,
+				467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -281,6 +285,7 @@
 			files = (
 				46A637241C4B07EB0000AF22 /* Spotlight.swift in Sources */,
 				46A637211C49CEB00000AF22 /* SpotlightView.swift in Sources */,
+				467D20BC1C4DBF810033D5CA /* SpotlightTransitionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +306,7 @@
 				467D20841C488C920033D5CA /* AppDelegate.swift in Sources */,
 				46A637251C4B08CA0000AF22 /* Spotlight.swift in Sources */,
 				46A637221C49D06B0000AF22 /* SpotlightView.swift in Sources */,
+				467D20BD1C4DBF900033D5CA /* SpotlightTransitionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

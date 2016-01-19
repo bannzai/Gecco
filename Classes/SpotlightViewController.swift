@@ -6,7 +6,6 @@
 //  Copyright © 2016年 yukiasai. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 public protocol SpotlightViewControllerDelegate: class {
@@ -17,7 +16,11 @@ public class SpotlightViewController: UIViewController {
     
     public var delegate: SpotlightViewControllerDelegate?
     
-    private var isPresent = false
+    lazy var transitionController: SpotlightTransitionController = {
+        let controller = SpotlightTransitionController()
+        controller.delegate = self
+        return controller
+    }()
     
     lazy var spotlightView: SpotlightView = {
         let view = SpotlightView(frame: self.view.frame)
@@ -61,94 +64,24 @@ extension SpotlightViewController {
     }
 }
 
+extension SpotlightViewController: SpotlightTransitionControllerDelegate {
+    func spotlightTransitionWillPresent(controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
+        spotlightView.appear(controller.transitionDuration(transitionContext))
+    }
+    
+    func spotlightTransitionWillDismiss(controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
+        spotlightView.disappear(controller.transitionDuration(transitionContext))
+    }
+}
+
 extension SpotlightViewController: UIViewControllerTransitioningDelegate {
     public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresent = true
-        return self
+        transitionController.isPresent = true
+        return transitionController
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresent = false
-        return self
+        transitionController.isPresent = false
+        return transitionController
     }
 }
-
-extension SpotlightViewController: UIViewControllerAnimatedTransitioning {
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.25
-    }
-    
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        if isPresent {
-            animateTransitionForPresent(transitionContext)
-        } else {
-            animateTransitionForDismiss(transitionContext)
-        }
-    }
-    
-    private func animateTransitionForPresent(transitionContext: UIViewControllerContextTransitioning) {
-        guard let source = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            let destination = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
-                fatalError()
-        }
-        transitionContext.containerView()?.insertSubview(destination.view, aboveSubview: source.view)
-        
-        destination.view.alpha = 0
-        
-        source.viewWillDisappear(true)
-        destination.viewWillAppear(true)
-        
-        let duration = transitionDuration(transitionContext)
-        CATransaction.begin()
-        CATransaction.setCompletionBlock {
-            transitionContext.completeTransition(true)
-        }
-        { // In transation
-            UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut,
-                animations: {
-                    destination.view.alpha = 1.0
-                },
-                completion: { _ in
-                    destination.viewDidAppear(true)
-                    source.viewDidDisappear(true)
-                }
-            )
-            spotlightView.appear(duration)
-        }()
-        CATransaction.commit()
-    }
-    
-    private func animateTransitionForDismiss(transitionContext: UIViewControllerContextTransitioning) {
-        guard let source = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            let destination = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
-                fatalError()
-        }
-        
-        source.viewWillDisappear(true)
-        destination.viewWillAppear(true)
-        
-        let duration = transitionDuration(transitionContext)
-        
-        CATransaction.begin()
-        CATransaction.setCompletionBlock {
-            transitionContext.completeTransition(true)
-        }
-        { // In transation
-            UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut,
-                animations: {
-                    source.view.alpha = 0.0
-                },
-                completion: { _ in
-                    destination.viewDidAppear(true)
-                    source.viewDidDisappear(true)
-                }
-            )
-            spotlightView.disappear(duration)
-        }()
-        CATransaction.commit()
-    }
-    
-    public func animationEnded(transitionCompleted: Bool) {
-    }
-}
-
