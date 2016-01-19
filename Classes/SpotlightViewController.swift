@@ -22,7 +22,7 @@ public class SpotlightViewController: UIViewController {
         return controller
     }()
     
-    lazy var spotlightView: SpotlightView = {
+    public lazy var spotlightView: SpotlightView = {
         let view = SpotlightView(frame: self.view.frame)
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.userInteractionEnabled = false

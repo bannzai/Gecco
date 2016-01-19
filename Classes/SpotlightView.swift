@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpotlightView: UIView {
+public class SpotlightView: UIView {
     var spotlight = Spotlight.Oval(center: CGPointZero, width: 100)
     
     private lazy var maskLayer: CAShapeLayer = {
@@ -18,32 +18,32 @@ class SpotlightView: UIView {
         return layer
     }()
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         layer.mask = maskLayer
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.mask = maskLayer
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         maskLayer.frame = frame
     }
     
-    func appear(duration: NSTimeInterval, spotlight: Spotlight? = nil) {
+    public func appear(duration: NSTimeInterval, spotlight: Spotlight? = nil) {
         let light = spotlight ?? self.spotlight
         maskLayer.addAnimation(appearAnimation(duration, spotlight: light), forKey: nil)
     }
     
-    func disappear(duration: NSTimeInterval, spotlight: Spotlight? = nil) {
+    public func disappear(duration: NSTimeInterval, spotlight: Spotlight? = nil) {
         maskLayer.addAnimation(disappearAnimation(duration, spotlight: spotlight), forKey: nil)
     }
    
-    func move(duration: NSTimeInterval, fromSpotlight: Spotlight?, toSpotlight: Spotlight, moveType: SpotlightMoveType = .Direct) {
+    public func move(duration: NSTimeInterval, fromSpotlight: Spotlight?, toSpotlight: Spotlight, moveType: SpotlightMoveType = .Direct) {
         switch moveType {
         case .Direct:
             moveDirect(duration, fromSpotlight: fromSpotlight, toSpotlight: toSpotlight)
