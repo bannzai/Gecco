@@ -26,6 +26,16 @@ public class SpotlightViewController: UIViewController {
         let view = SpotlightView(frame: self.view.frame)
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.userInteractionEnabled = false
+        self.view.insertSubview(view, atIndex: 0)
+        self.view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
+            NSLayoutConstraint(item: self.view, attribute: $0, relatedBy: .Equal, toItem: view, attribute: $0, multiplier: 1, constant: 0)
+            })
+        return view
+    }()
+    
+    public lazy var contentView: UIView = {
+        let view = UIView(frame: self.view.frame)
+        view.backgroundColor = UIColor.clearColor()
         self.view.addSubview(view)
         self.view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
             NSLayoutConstraint(item: self.view, attribute: $0, relatedBy: .Equal, toItem: view, attribute: $0, multiplier: 1, constant: 0)

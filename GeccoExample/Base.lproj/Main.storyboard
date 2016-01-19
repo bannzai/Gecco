@@ -62,6 +62,48 @@
             </objects>
             <point key="canvasLocation" x="551" y="542"/>
         </scene>
+        <!--Annotation View Controller-->
+        <scene sceneID="1SJ-jz-ORi">
+            <objects>
+                <viewController storyboardIdentifier="Annotation" id="Gx5-PR-02c" customClass="AnnotationViewController" customModule="Gecco" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cqj-KG-bJ3"/>
+                        <viewControllerLayoutGuide type="bottom" id="SNu-AT-lag"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Doe-QG-2WH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appear spotlight on view." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fah-CI-bfM">
+                                <rect key="frame" x="395" y="75" width="193" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move spotlight." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1A-yK-Ogk">
+                                <rect key="frame" x="432" y="75" width="118" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fah-CI-bfM" secondAttribute="trailing" constant="12" id="81Y-7l-HO2"/>
+                            <constraint firstItem="fah-CI-bfM" firstAttribute="top" secondItem="Doe-QG-2WH" secondAttribute="top" constant="75" id="9qi-nw-wUS"/>
+                            <constraint firstItem="j1A-yK-Ogk" firstAttribute="top" secondItem="Doe-QG-2WH" secondAttribute="top" constant="75" id="Ps2-FE-PoI"/>
+                            <constraint firstAttribute="trailing" secondItem="j1A-yK-Ogk" secondAttribute="trailing" constant="50" id="tr4-MC-JNU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outletCollection property="annotationViews" destination="fah-CI-bfM" collectionClass="NSMutableArray" id="8YQ-Ox-4md"/>
+                        <outletCollection property="annotationViews" destination="j1A-yK-Ogk" collectionClass="NSMutableArray" id="HOI-GB-3cu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNh-QX-ZIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="1093"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Xw-SP-YLq">
             <objects>

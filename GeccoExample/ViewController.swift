@@ -10,8 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var stepIndex: Int = 0
-    var spotlightViewController: SpotlightViewController?
+    var annotationViewController: AnnotationViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,46 +21,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(sender: AnyObject) {
-        next()
+        presentAnnotation()
     }
     
-    func next() {
-        switch stepIndex {
-        case 0:
-            presentSpotlight()
-        case 1:
-            spotlightViewController?.spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: Spotlight.Oval(center: CGPointMake(300, 42), width: 50))
-        case 2:
-            spotlightViewController?.spotlightView.move(0.25, fromSpotlight: nil, toSpotlight: Spotlight.Oval(center: CGPointMake(375 / 2, 320), width: 200), moveType: .Disappear)
-        case 3:
-            dismissSpotlight()
-        default:
-            break
-        }
-        stepIndex++
-    }
-    
-    func presentSpotlight() {
-        let viewController = SpotlightViewController()
+    func presentAnnotation() {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Annotation") as! AnnotationViewController
         viewController.spotlight = Spotlight.Oval(center: CGPointMake(349, 42), width: 50)
-        viewController.delegate = self
         presentViewController(viewController, animated: true, completion: nil)
-        
-        spotlightViewController = viewController
-    }
-    
-    func dismissSpotlight() {
-        dismissViewControllerAnimated(true) {
-            self.spotlightViewController = nil
-            self.stepIndex = 0
-        }
+        annotationViewController = viewController
     }
 }
 
-extension ViewController: SpotlightViewControllerDelegate {
-    func spotlightViewControllerTapped(viewController: SpotlightViewController) {
-        next()
-    }
-    
-}
 

@@ -29,6 +29,7 @@
 		46C6AE3C1C4DFA28004AAE2F /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
 		46C6AE3D1C4DFA28004AAE2F /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B21C488D620033D5CA /* SpotlightViewController.swift */; };
 		46C6AE3E1C4DFA28004AAE2F /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
+		46C6AE421C4E0A5E004AAE2F /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE411C4E0A5E004AAE2F /* AnnotationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		46C6AE211C4DF9A8004AAE2F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		46C6AE231C4DF9A8004AAE2F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46C6AE241C4DF9A8004AAE2F /* GeccoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeccoTests.swift; sourceTree = "<group>"; };
+		46C6AE411C4E0A5E004AAE2F /* AnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				46C6AE1E1C4DF9A8004AAE2F /* Main.storyboard */,
 				46C6AE201C4DF9A8004AAE2F /* Info.plist */,
 				46C6AE211C4DF9A8004AAE2F /* ViewController.swift */,
+				46C6AE411C4E0A5E004AAE2F /* AnnotationViewController.swift */,
 			);
 			path = GeccoExample;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				46A637221C49D06B0000AF22 /* SpotlightView.swift in Sources */,
 				46C6AE2F1C4DF9AF004AAE2F /* AppDelegate.swift in Sources */,
 				467D20BD1C4DBF900033D5CA /* SpotlightTransitionController.swift in Sources */,
+				46C6AE421C4E0A5E004AAE2F /* AnnotationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
