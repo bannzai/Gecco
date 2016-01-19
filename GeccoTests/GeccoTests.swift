@@ -1,15 +1,15 @@
 //
-//  SpotTests.swift
-//  SpotTests
+//  GeccoTests.swift
+//  GeccoTests
 //
 //  Created by Asai.Yuki on 2016/01/15.
 //  Copyright © 2016年 yukiasai. All rights reserved.
 //
 
 import XCTest
-@testable import Spot
+@testable import Gecco
 
-class SpotTests: XCTestCase {
+class GeccoTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
