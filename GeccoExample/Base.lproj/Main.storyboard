@@ -3,10 +3,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--Gecco-->
+        <!--Example-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Gecco" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,13 +23,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-dw-II0">
-                                <rect key="frame" x="128" y="221" width="64" height="64"/>
+                                <rect key="frame" x="256" y="256" width="64" height="64"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Kma-bZ-hmu"/>
                                     <constraint firstAttribute="width" constant="64" id="aW8-5s-Pvj"/>
                                 </constraints>
-                                <state key="normal" title="Spot"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mfa-QO-7O7"/>
                                 </connections>
@@ -38,14 +41,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EnQ-nl-eHL" secondAttribute="trailing" id="6FZ-oF-PfX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fbk-dw-II0" secondAttribute="bottom" constant="35" id="6ZA-ml-TjY"/>
-                            <constraint firstItem="Fbk-dw-II0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KZF-tb-ibU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fbk-dw-II0" secondAttribute="bottom" id="6ZA-ml-TjY"/>
                             <constraint firstItem="EnQ-nl-eHL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MG2-tV-gbu"/>
+                            <constraint firstAttribute="trailing" secondItem="Fbk-dw-II0" secondAttribute="trailing" id="g9D-lZ-Ml0"/>
                             <constraint firstAttribute="bottom" secondItem="EnQ-nl-eHL" secondAttribute="bottom" id="kyX-kr-lQa"/>
                             <constraint firstItem="EnQ-nl-eHL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xcu-pD-sJA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Gecco" id="zxK-rg-8Cj">
+                    <navigationItem key="navigationItem" title="Example" id="zxK-rg-8Cj">
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="U1j-TV-IbH">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,20 +78,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appear spotlight on view." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fah-CI-bfM">
-                                <rect key="frame" x="115" y="75" width="193" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="109" y="75" width="198.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move spotlight." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1A-yK-Ogk">
-                                <rect key="frame" x="152" y="75" width="118" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="150" y="75" width="119.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support rounded rect." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa0-41-Snl">
-                                <rect key="frame" x="75" y="74" width="170" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="75" y="74" width="170.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gecco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjx-3h-ych">
+                                <rect key="frame" x="71" y="155" width="177" height="78"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="60"/>
                                 <color key="textColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -98,9 +107,11 @@
                             <constraint firstAttribute="trailing" secondItem="fah-CI-bfM" secondAttribute="trailing" constant="12" id="81Y-7l-HO2"/>
                             <constraint firstItem="fah-CI-bfM" firstAttribute="top" secondItem="Doe-QG-2WH" secondAttribute="top" constant="75" id="9qi-nw-wUS"/>
                             <constraint firstItem="j1A-yK-Ogk" firstAttribute="top" secondItem="Doe-QG-2WH" secondAttribute="top" constant="75" id="Ps2-FE-PoI"/>
+                            <constraint firstItem="Qjx-3h-ych" firstAttribute="centerX" secondItem="Doe-QG-2WH" secondAttribute="centerX" id="Uhw-wU-bms"/>
                             <constraint firstItem="wa0-41-Snl" firstAttribute="top" secondItem="Doe-QG-2WH" secondAttribute="top" constant="74" id="nMM-c8-zG5"/>
                             <constraint firstItem="wa0-41-Snl" firstAttribute="centerX" secondItem="Doe-QG-2WH" secondAttribute="centerX" id="t8w-ml-qAs"/>
                             <constraint firstAttribute="trailing" secondItem="j1A-yK-Ogk" secondAttribute="trailing" constant="50" id="tr4-MC-JNU"/>
+                            <constraint firstItem="Qjx-3h-ych" firstAttribute="top" secondItem="Doe-QG-2WH" secondAttribute="topMargin" constant="155" id="ynk-xn-nEI"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -109,6 +120,7 @@
                         <outletCollection property="annotationViews" destination="fah-CI-bfM" collectionClass="NSMutableArray" id="8YQ-Ox-4md"/>
                         <outletCollection property="annotationViews" destination="j1A-yK-Ogk" collectionClass="NSMutableArray" id="HOI-GB-3cu"/>
                         <outletCollection property="annotationViews" destination="wa0-41-Snl" collectionClass="NSMutableArray" id="Ub1-zw-Uaj"/>
+                        <outletCollection property="annotationViews" destination="Qjx-3h-ych" collectionClass="NSMutableArray" id="5tr-Pw-rUg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNh-QX-ZIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,6 +151,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="example" width="1250" height="833"/>
+        <image name="example" width="469" height="833"/>
     </resources>
 </document>

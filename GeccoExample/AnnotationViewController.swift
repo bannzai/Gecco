@@ -30,6 +30,8 @@ class AnnotationViewController: SpotlightViewController {
         case 2:
             spotlightView.move(Spotlight.RoundedRect(center: CGPointMake(375 / 2, 42), size: CGSizeMake(120, 40), radius: 6), moveType: .Disappear)
         case 3:
+            spotlightView.move(Spotlight.Oval(center: CGPointMake(375 / 2, 200), width: 220), moveType: .Disappear)
+        case 4:
             dismissViewControllerAnimated(true, completion: nil)
         default:
             break
