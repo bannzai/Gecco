@@ -41,10 +41,10 @@ public enum Spotlight {
     
     var path: UIBezierPath {
         switch self {
-        case .Oval(_, _):
-            return UIBezierPath(ovalInRect: frame)
+        case .Oval(_, let width):
+            return UIBezierPath(roundedRect: frame, cornerRadius: width / 2)
         case .Rect(_, _):
-            return UIBezierPath(rect: frame)
+            return UIBezierPath(roundedRect: frame, cornerRadius: 0)
         case .RoundedRect(_, _, let radius):
             return UIBezierPath(roundedRect: frame, cornerRadius: radius)
         }
@@ -52,10 +52,10 @@ public enum Spotlight {
     
     var infinitesmalPath: UIBezierPath {
         switch self {
-        case .Oval(_, _):
-            return UIBezierPath(ovalInRect: frameWith(center, size: CGSizeZero))
+        case .Oval(_, let width):
+            return UIBezierPath(roundedRect: frameWith(center, size: CGSizeZero), cornerRadius: width / 2)
         case .Rect(_, _):
-            return UIBezierPath(rect: frameWith(center, size: CGSizeZero))
+            return UIBezierPath(roundedRect: frameWith(center, size: CGSizeZero), cornerRadius: 0)
         case .RoundedRect(_, _, let radius):
             return UIBezierPath(roundedRect: frameWith(center, size: CGSizeZero), cornerRadius: radius)
         }
