@@ -3,7 +3,7 @@
 //  GeccoTests
 //
 //  Created by Asai.Yuki on 2016/01/15.
-//  Copyright © 2016年 yukiasai. All rights reserved.
+//  Copyright (c) 2016 yukiasai. All rights reserved.
 //
 
 import XCTest
