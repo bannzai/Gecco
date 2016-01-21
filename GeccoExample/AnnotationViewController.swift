@@ -2,7 +2,7 @@
 //  AnnotationViewController.swift
 //  Gecco
 //
-//  Created by Asai.Yuki on 2016/01/19.
+//  Created by yukiasai on 2016/01/19.
 //  Copyright (c) 2016 yukiasai. All rights reserved.
 //
 
