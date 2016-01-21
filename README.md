@@ -1,5 +1,9 @@
 # Gecco
 
+[![Pod Version](http://img.shields.io/cocoapods/v/Gecco.svg?style=flat)](http://cocoadocs.org/docsets/Gecco/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/Gecco.svg?style=flat)](http://cocoadocs.org/docsets/Gecco/)
+[![Pod License](http://img.shields.io/cocoapods/l/Gecco.svg?style=flat)](http://opensource.org/licenses/MIT)
+
 Spotlight view for iOS.
 
 ![Demo](https://cloud.githubusercontent.com/assets/6880730/12470510/2d1cb602-c038-11e5-8095-a2a0d77f99db.gif)
