@@ -4,7 +4,7 @@
 [![Pod Platform](http://img.shields.io/cocoapods/p/Gecco.svg?style=flat)](http://cocoadocs.org/docsets/Gecco/)
 [![Pod License](http://img.shields.io/cocoapods/l/Gecco.svg?style=flat)](http://opensource.org/licenses/MIT)
 
-Spotlight view for iOS.
+Simply highlight items for your tutorial walkthrough, written in Swift
 
 Gecco means Moonlight in Japanese.
 
