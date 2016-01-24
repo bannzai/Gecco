@@ -64,4 +64,41 @@ public enum Spotlight {
     func frameWith(center: CGPoint, size: CGSize) -> CGRect {
         return CGRectMake(center.x - size.width / 2, center.y - size.height / 2, size.width, size.height)
     }
+    
+    public static func calculateBarbuttonItemCenterPosition(barButtonItem: UIBarButtonItem, superView: UIView? = nil) -> CGPoint {
+        
+        let rootView = superView ?? UIApplication.sharedApplication().windows.last!
+        if let customView = barButtonItem.customView {
+            let point = targetViewOriginInSuperview(customView, currentOrigin: customView.frame.origin, rootView: rootView)
+            return CGPointMake(point.x + customView.frame.width / 2, point.y + customView.frame.height / 2)
+        }
+        else if let view = barButtonItem.valueForKey("view") as? UIView {
+            let point = targetViewOriginInSuperview(view.superview!, currentOrigin: view.frame.origin, rootView: rootView)
+            return CGPointMake(point.x + view.frame.size.width / 2, point.y + view.frame.size.height / 2)
+        }
+        
+        return CGPointZero
+        
+    }
+    
+    private static func targetViewOriginInSuperview(targetView: UIView, currentOrigin: CGPoint, rootView: UIView?) -> CGPoint {
+        
+        guard let containerView = targetView.superview else {
+            return CGPointMake(targetView.frame.origin.x + currentOrigin.x, targetView.frame.origin.y + currentOrigin.y)
+        }
+        
+        if let rootView = rootView {
+            if targetView === rootView {
+                return currentOrigin
+            }
+            else {
+                return targetViewOriginInSuperview(containerView, currentOrigin: CGPointMake(targetView.frame.origin.x + currentOrigin.x, targetView.frame.origin.y + currentOrigin.y), rootView: rootView)
+            }
+        }
+        else {
+            return targetViewOriginInSuperview(containerView, currentOrigin: CGPointMake(targetView.frame.origin.x + currentOrigin.x, targetView.frame.origin.y + currentOrigin.y), rootView: nil)
+        }
+        
+    }
+    
 }
