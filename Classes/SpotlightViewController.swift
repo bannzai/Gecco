@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol SpotlightViewControllerDelegate: class {
-    func spotlightViewControllerTapped(viewController: SpotlightViewController)
+    func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool)
 }
 
 public class SpotlightViewController: UIViewController {
@@ -88,7 +88,9 @@ public class SpotlightViewController: UIViewController {
 
 extension SpotlightViewController {
     func viewTapped(gesture: UITapGestureRecognizer) {
-        delegate?.spotlightViewControllerTapped(self)
+        let touchPoint = gesture.locationInView(spotlightView)
+        let isInside = spotlight.frame.contains(touchPoint)
+        delegate?.spotlightViewControllerTapped(self, isInsideSpotlight: isInside)
     }
 }
 

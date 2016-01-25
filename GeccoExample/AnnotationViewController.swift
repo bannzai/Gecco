@@ -52,7 +52,7 @@ class AnnotationViewController: SpotlightViewController {
 }
 
 extension AnnotationViewController: SpotlightViewControllerDelegate {
-    func spotlightViewControllerTapped(viewController: SpotlightViewController) {
+    func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool) {
         next(true)
     }
 }
