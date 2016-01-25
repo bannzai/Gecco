@@ -12,13 +12,11 @@
 		467D20BD1C4DBF900033D5CA /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
 		46A637221C49D06B0000AF22 /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
 		46A637251C4B08CA0000AF22 /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637231C4B07EB0000AF22 /* Spotlight.swift */; };
-		46C6AE261C4DF9A8004AAE2F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE181C4DF9A8004AAE2F /* Info.plist */; };
 		46C6AE2D1C4DF9A8004AAE2F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE231C4DF9A8004AAE2F /* Info.plist */; };
 		46C6AE2F1C4DF9AF004AAE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE1A1C4DF9A8004AAE2F /* AppDelegate.swift */; };
 		46C6AE301C4DF9BB004AAE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE1B1C4DF9A8004AAE2F /* Assets.xcassets */; };
 		46C6AE311C4DF9EA004AAE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE1E1C4DF9A8004AAE2F /* Main.storyboard */; };
 		46C6AE321C4DF9EF004AAE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE1C1C4DF9A8004AAE2F /* LaunchScreen.storyboard */; };
-		46C6AE331C4DF9F3004AAE2F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE201C4DF9A8004AAE2F /* Info.plist */; };
 		46C6AE341C4DF9F7004AAE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE211C4DF9A8004AAE2F /* ViewController.swift */; };
 		46C6AE361C4DFA01004AAE2F /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637231C4B07EB0000AF22 /* Spotlight.swift */; };
 		46C6AE371C4DFA01004AAE2F /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
@@ -224,7 +222,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = yukiasai;
 				TargetAttributes = {
 					467D205C1C48883C0033D5CA = {
@@ -264,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				46C6AE2D1C4DF9A8004AAE2F /* Info.plist in Resources */,
-				46C6AE261C4DF9A8004AAE2F /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +276,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46C6AE331C4DF9F3004AAE2F /* Info.plist in Resources */,
 				46C6AE321C4DF9EF004AAE2F /* LaunchScreen.storyboard in Resources */,
 				46C6AE301C4DF9BB004AAE2F /* Assets.xcassets in Resources */,
 				46C6AE311C4DF9EA004AAE2F /* Main.storyboard in Resources */,
