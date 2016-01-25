@@ -29,7 +29,9 @@ public class SpotlightViewController: UIViewController {
         get { return spotlightView.spotlight }
         set { spotlightView.spotlight = newValue }
     }
-    
+
+    public var alpha: CGFloat = 0.5
+
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         commonInit()
@@ -48,7 +50,7 @@ public class SpotlightViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupSpotlightView()
+        setupSpotlightView(alpha)
         setupContentView()
         setupTapGesture()
         
@@ -59,9 +61,9 @@ public class SpotlightViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    private func setupSpotlightView() {
+    private func setupSpotlightView(alpha: CGFloat) {
         spotlightView.frame = view.bounds
-        spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: alpha)
         spotlightView.userInteractionEnabled = false
         view.insertSubview(spotlightView, atIndex: 0)
         view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
