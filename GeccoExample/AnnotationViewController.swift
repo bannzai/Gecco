@@ -25,13 +25,13 @@ class AnnotationViewController: SpotlightViewController {
     func next(animated: Bool) {
         switch stepIndex {
         case 0:
-            spotlight = Spotlight.Oval(center: CGPointMake(349, 42), width: 50)
+            spotlight = Spotlight(shape: .Oval(center: CGPointMake(349, 42), width: 50))
         case 1:
-            spotlightView.move(Spotlight.Oval(center: CGPointMake(300, 42), width: 50))
+            spotlightView.move(Spotlight(shape: .Oval(center: CGPointMake(300, 42), width: 50)))
         case 2:
-            spotlightView.move(Spotlight.RoundedRect(center: CGPointMake(375 / 2, 42), size: CGSizeMake(120, 40), radius: 6), moveType: .Disappear)
+            spotlightView.move(Spotlight(shape: .RoundedRect(center: CGPointMake(375 / 2, 42), size: CGSizeMake(120, 40), radius: 6)), moveType: .Disappear)
         case 3:
-            spotlightView.move(Spotlight.Oval(center: CGPointMake(375 / 2, 200), width: 220), moveType: .Disappear)
+            spotlightView.move(Spotlight(shape: .Oval(center: CGPointMake(375 / 2, 200), width: 220)), moveType: .Disappear)
         case 4:
             dismissViewControllerAnimated(animated, completion: nil)
         default:
