@@ -11,7 +11,7 @@ import UIKit
 public class SpotlightView: UIView {
     public static let defaultAnimateDuration: NSTimeInterval = 0.25
     
-    var spotlight = Spotlight.Oval(center: CGPointZero, width: 100)
+    var spotlight = Spotlight(shape: .Oval(center: CGPointZero, width: 100))
     
     private lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
