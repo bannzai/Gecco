@@ -99,7 +99,7 @@ public class Spotlight {
         }
         
         private func rectSize(view: UIView, margin: CGFloat) -> CGSize {
-            return CGSizeMake(view.bounds.size.width + margin * 2, view.bounds.size.height + margin * 2)// view.bounds.size
+            return CGSizeMake(view.bounds.size.width + margin * 2, view.bounds.size.height + margin * 2)
         }
         
         private func ovalSize(view: UIView, margin: CGFloat) -> CGSize {
