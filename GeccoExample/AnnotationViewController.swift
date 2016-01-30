@@ -39,7 +39,7 @@ class AnnotationViewController: SpotlightViewController {
             break
         }
         
-        stepIndex++
+        stepIndex += 1
     }
     
     func updateAnnotationView(animated: Bool) {
@@ -56,11 +56,11 @@ extension AnnotationViewController: SpotlightViewControllerDelegate {
         next(false)
     }
     
-    func spotlightViewControllerWillDismiss(viewController: SpotlightViewController, animated: Bool) {
-        spotlightView.disappear()
-    }
-    
     func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool) {
         next(true)
+    }
+    
+    func spotlightViewControllerWillDismiss(viewController: SpotlightViewController, animated: Bool) {
+        spotlightView.disappear()
     }
 }
