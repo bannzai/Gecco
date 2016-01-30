@@ -18,7 +18,7 @@ public class SpotlightViewController: UIViewController {
     
     public var delegate: SpotlightViewControllerDelegate?
     
-    lazy var transitionController: SpotlightTransitionController = {
+    private lazy var transitionController: SpotlightTransitionController = {
         let controller = SpotlightTransitionController()
         controller.delegate = self
         return controller
