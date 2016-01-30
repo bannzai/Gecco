@@ -11,14 +11,14 @@ import UIKit
 public class SpotlightView: UIView {
     public static let defaultAnimateDuration: NSTimeInterval = 0.25
     
-    var spotlight: SpotlightType = Spotlight.Oval(center: CGPointZero, diameter: 100)
-    
     private lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.fillRule = kCAFillRuleEvenOdd
         layer.fillColor = UIColor.blackColor().CGColor
         return layer
     }()
+    
+    var spotlight: SpotlightType?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,9 +40,9 @@ public class SpotlightView: UIView {
         maskLayer.frame = frame
     }
     
-    public func appear(spotlight: SpotlightType? = nil, duration: NSTimeInterval = SpotlightView.defaultAnimateDuration) {
-        let light = spotlight ?? self.spotlight
-        maskLayer.addAnimation(appearAnimation(duration, spotlight: light), forKey: nil)
+    public func appear(spotlight: SpotlightType, duration: NSTimeInterval = SpotlightView.defaultAnimateDuration) {
+        maskLayer.addAnimation(appearAnimation(duration, spotlight: spotlight), forKey: nil)
+        self.spotlight = spotlight
     }
     
     public func disappear(duration: NSTimeInterval = SpotlightView.defaultAnimateDuration) {
@@ -89,7 +89,7 @@ extension SpotlightView {
     }
     
     private func disappearAnimation(duration: NSTimeInterval) -> CAAnimation {
-        let endPath = maskPath(spotlight.infinitesmalPath)
+        let endPath = maskPath(spotlight!.infinitesmalPath)
         return pathAnimation(duration, beginPath:nil, endPath: endPath)
     }
     
