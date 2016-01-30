@@ -26,13 +26,13 @@ class AnnotationViewController: SpotlightViewController {
         let screenSize = UIScreen.mainScreen().bounds.size
         switch stepIndex {
         case 0:
-            spotlight = Spotlight(shape: .Oval(center: CGPointMake(screenSize.width - 26, 42), width: 50))
+            spotlight = Spotlight.Oval(center: CGPointMake(screenSize.width - 26, 42), diameter: 50)
         case 1:
-            spotlightView.move(Spotlight(shape: .Oval(center: CGPointMake(screenSize.width - 75, 42), width: 50)))
+            spotlightView.move(Spotlight.Oval(center: CGPointMake(screenSize.width - 75, 42), diameter: 50))
         case 2:
-            spotlightView.move(Spotlight(shape: .RoundedRect(center: CGPointMake(screenSize.width / 2, 42), size: CGSizeMake(120, 40), radius: 6)), moveType: .Disappear)
+            spotlightView.move(Spotlight.RoundedRect(center: CGPointMake(screenSize.width / 2, 42), size: CGSizeMake(120, 40), cornerRadius: 6), moveType: .Disappear)
         case 3:
-            spotlightView.move(Spotlight(shape: .Oval(center: CGPointMake(screenSize.width / 2, 200), width: 220)), moveType: .Disappear)
+            spotlightView.move(Spotlight.Oval(center: CGPointMake(screenSize.width / 2, 200), diameter: 220), moveType: .Disappear)
         case 4:
             dismissViewControllerAnimated(animated, completion: nil)
         default:

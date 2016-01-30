@@ -25,7 +25,7 @@ public class SpotlightViewController: UIViewController {
     public let spotlightView = SpotlightView()
     public let contentView = UIView()
     
-    public var spotlight: Spotlight {
+    public var spotlight: SpotlightType {
         get { return spotlightView.spotlight }
         set { spotlightView.spotlight = newValue }
     }
