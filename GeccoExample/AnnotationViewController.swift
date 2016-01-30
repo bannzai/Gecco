@@ -18,29 +18,28 @@ class AnnotationViewController: SpotlightViewController {
         super.viewDidLoad()
         
         delegate = self
-        
-        next(false)
     }
     
-    func next(animated: Bool) {
+    func next(labelAnimated: Bool) {
+        updateAnnotationView(labelAnimated)
+        
         let screenSize = UIScreen.mainScreen().bounds.size
         switch stepIndex {
         case 0:
-            spotlight = Spotlight(shape: .Oval(center: CGPointMake(screenSize.width - 26, 42), width: 50))
+            spotlightView.appear(Spotlight.Oval(center: CGPointMake(screenSize.width - 26, 42), diameter: 50))
         case 1:
-            spotlightView.move(Spotlight(shape: .Oval(center: CGPointMake(screenSize.width - 75, 42), width: 50)))
+            spotlightView.move(Spotlight.Oval(center: CGPointMake(screenSize.width - 75, 42), diameter: 50))
         case 2:
-            spotlightView.move(Spotlight(shape: .RoundedRect(center: CGPointMake(screenSize.width / 2, 42), size: CGSizeMake(120, 40), radius: 6)), moveType: .Disappear)
+            spotlightView.move(Spotlight.RoundedRect(center: CGPointMake(screenSize.width / 2, 42), size: CGSizeMake(120, 40), cornerRadius: 6), moveType: .Disappear)
         case 3:
-            spotlightView.move(Spotlight(shape: .Oval(center: CGPointMake(screenSize.width / 2, 200), width: 220)), moveType: .Disappear)
+            spotlightView.move(Spotlight.Oval(center: CGPointMake(screenSize.width / 2, 200), diameter: 220), moveType: .Disappear)
         case 4:
-            dismissViewControllerAnimated(animated, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
         default:
             break
         }
-        updateAnnotationView(animated)
         
-        stepIndex++
+        stepIndex += 1
     }
     
     func updateAnnotationView(animated: Bool) {
@@ -53,7 +52,15 @@ class AnnotationViewController: SpotlightViewController {
 }
 
 extension AnnotationViewController: SpotlightViewControllerDelegate {
+    func spotlightViewControllerWillPresent(viewController: SpotlightViewController, animated: Bool) {
+        next(false)
+    }
+    
     func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool) {
         next(true)
+    }
+    
+    func spotlightViewControllerWillDismiss(viewController: SpotlightViewController, animated: Bool) {
+        spotlightView.disappear()
     }
 }
