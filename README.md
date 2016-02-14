@@ -32,7 +32,7 @@ Please refer to [GeccoExample](https://github.com/yukiasai/Gecco/tree/master/Gec
 
 ## Installation
 
-#### Cocoapods
+#### CocoaPods
 
 ```
 pod 'Gecco'
