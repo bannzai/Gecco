@@ -37,6 +37,13 @@ Please refer to [GeccoExample](https://github.com/yukiasai/Gecco/tree/master/Gec
 ```
 pod 'Gecco'
 ```
+#### Carthage
+
+```
+github "yukiasai/Gecco"
+```
+
+
 
 ## License
 
