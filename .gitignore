@@ -15,8 +15,8 @@ DerivedData
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata
-
+xcuserdata/
+xcuserdata/**/*
 ## Other
 *.xccheckout
 *.moved-aside
@@ -44,7 +44,7 @@ Pods/
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
+Carthage/Checkouts
 
 Carthage/Build
 
