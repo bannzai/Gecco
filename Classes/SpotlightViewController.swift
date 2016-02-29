@@ -12,6 +12,8 @@ import UIKit
     optional func spotlightViewControllerWillPresent(viewController: SpotlightViewController, animated: Bool)
     optional func spotlightViewControllerWillDismiss(viewController: SpotlightViewController, animated: Bool)
     optional func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool)
+    optional func spotlightViewControllerTapped(viewController: SpotlightViewController, insideSpotlightAtIndex: Int)
+    optional func spotlightViewControllerTappedInsideDimmedView(viewController: SpotlightViewController)
 }
 
 public class SpotlightViewController: UIViewController {
@@ -86,8 +88,21 @@ public class SpotlightViewController: UIViewController {
 extension SpotlightViewController {
     func viewTapped(gesture: UITapGestureRecognizer) {
         let touchPoint = gesture.locationInView(spotlightView)
-        let isInside = spotlightView.spotlight?.frame.contains(touchPoint) ?? false
-        delegate?.spotlightViewControllerTapped?(self, isInsideSpotlight: isInside)
+        
+        var indexTapped: Int? = nil
+        for (index, spotlight) in spotlightView.spotlights.enumerate() {
+            if spotlight.frame.contains(touchPoint) {
+                indexTapped = index
+            }
+        }
+        
+        if indexTapped == nil {
+            delegate?.spotlightViewControllerTapped?(self, isInsideSpotlight: false)
+            delegate?.spotlightViewControllerTappedInsideDimmedView?(self)
+        } else {
+            delegate?.spotlightViewControllerTapped?(self, isInsideSpotlight: true)
+            delegate?.spotlightViewControllerTapped?(self, insideSpotlightAtIndex: indexTapped!)
+        }
     }
 }
 
