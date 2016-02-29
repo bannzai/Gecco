@@ -26,7 +26,7 @@ class AnnotationViewController: SpotlightViewController {
         let screenSize = UIScreen.mainScreen().bounds.size
         switch stepIndex {
         case 0:
-            spotlightView.appear(Spotlight.Oval(center: CGPointMake(screenSize.width - 26, 42), diameter: 50))
+            spotlightView.appear([Spotlight.Oval(center: CGPointMake(screenSize.width - 26, 42), diameter: 50), Spotlight.Oval(center: CGPointMake(screenSize.width - 75, 42), diameter: 50)])
         case 1:
             spotlightView.move(Spotlight.Oval(center: CGPointMake(screenSize.width - 75, 42), diameter: 50))
         case 2:
@@ -53,14 +53,25 @@ class AnnotationViewController: SpotlightViewController {
 
 extension AnnotationViewController: SpotlightViewControllerDelegate {
     func spotlightViewControllerWillPresent(viewController: SpotlightViewController, animated: Bool) {
+        print(__FUNCTION__ + "\(animated)")
         next(false)
     }
     
     func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool) {
+        print(__FUNCTION__ + "\(isInsideSpotlight)")
         next(true)
     }
     
     func spotlightViewControllerWillDismiss(viewController: SpotlightViewController, animated: Bool) {
+        print(__FUNCTION__ + "\(animated)")
         spotlightView.disappear()
+    }
+    
+    func spotlightViewControllerTapped(viewController: SpotlightViewController, insideSpotlightAtIndex: Int) {
+        print(__FUNCTION__ + "\(insideSpotlightAtIndex)")
+    }
+    
+    func spotlightViewControllerTappedInsideDimmedView(viewController: SpotlightViewController) {
+        print(__FUNCTION__)
     }
 }
