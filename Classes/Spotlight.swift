@@ -95,4 +95,13 @@ public class Spotlight {
         }
     }
     
+    public class Custom: SpotlightType {
+        public var frame: CGRect
+        public var path: UIBezierPath
+        public init(frame: CGRect, path: UIBezierPath) {
+            self.frame = frame
+            self.path = path
+        }
+    }
+    
 }
