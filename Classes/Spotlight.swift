@@ -74,6 +74,12 @@ public class Spotlight {
     
     public class RoundedRect: Rect {
         public var cornerRadius: CGFloat
+        
+        public init(frame: CGRect, cornerRadius: CGFloat) {
+            self.cornerRadius = cornerRadius
+            super.init(frame: frame)
+        }
+        
         public init(center: CGPoint, size: CGSize, cornerRadius: CGFloat) {
             self.cornerRadius = cornerRadius
             super.init(center: center, size: size)
@@ -88,4 +94,5 @@ public class Spotlight {
             return UIBezierPath(roundedRect: frame, cornerRadius: cornerRadius)
         }
     }
+    
 }
