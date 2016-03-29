@@ -27,9 +27,10 @@ public class SpotlightViewController: UIViewController {
     }()
     
     public let spotlightView = SpotlightView()
-    public let contentView = UIView()
+    public let contentView = SpotlightContentView()
     
     public var alpha: CGFloat = 0.5
+    public var forwardGestureRecognizer: UIGestureRecognizer?
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
