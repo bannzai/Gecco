@@ -81,7 +81,7 @@ public class SpotlightViewController: UIViewController {
     }
     
     private func setupTapGesture() {
-        let gesture = UITapGestureRecognizer(target: self, action: "viewTapped:");
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)));
         view.addGestureRecognizer(gesture)
     }
 }

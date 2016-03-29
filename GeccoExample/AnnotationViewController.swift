@@ -53,25 +53,25 @@ class AnnotationViewController: SpotlightViewController {
 
 extension AnnotationViewController: SpotlightViewControllerDelegate {
     func spotlightViewControllerWillPresent(viewController: SpotlightViewController, animated: Bool) {
-        print(__FUNCTION__ + "\(animated)")
+        print(#function + "\(animated)")
         next(false)
     }
     
     func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool) {
-        print(__FUNCTION__ + "\(isInsideSpotlight)")
+        print(#function + "\(isInsideSpotlight)")
         next(true)
     }
     
     func spotlightViewControllerWillDismiss(viewController: SpotlightViewController, animated: Bool) {
-        print(__FUNCTION__ + "\(animated)")
+        print(#function + "\(animated)")
         spotlightView.disappear()
     }
     
     func spotlightViewControllerTapped(viewController: SpotlightViewController, insideSpotlightAtIndex: Int) {
-        print(__FUNCTION__ + "\(insideSpotlightAtIndex)")
+        print(#function + "\(insideSpotlightAtIndex)")
     }
     
     func spotlightViewControllerTappedInsideDimmedView(viewController: SpotlightViewController) {
-        print(__FUNCTION__)
+        print(#function)
     }
 }
