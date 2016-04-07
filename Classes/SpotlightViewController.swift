@@ -16,7 +16,7 @@ import UIKit
 
 public class SpotlightViewController: UIViewController {
     
-    public var delegate: SpotlightViewControllerDelegate?
+    public weak var delegate: SpotlightViewControllerDelegate?
     
     private lazy var transitionController: SpotlightTransitionController = {
         let controller = SpotlightTransitionController()
