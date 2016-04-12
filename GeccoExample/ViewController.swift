@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var annotationViewController: AnnotationViewController?
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,7 +26,6 @@ class ViewController: UIViewController {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Annotation") as! AnnotationViewController
         viewController.alpha = 0.5
         presentViewController(viewController, animated: true, completion: nil)
-        annotationViewController = viewController
     }
 }
 
