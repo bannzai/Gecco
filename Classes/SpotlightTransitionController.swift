@@ -16,7 +16,7 @@ protocol SpotlightTransitionControllerDelegate: class {
 class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitioning {
     var isPresent = false
     
-    var delegate: SpotlightTransitionControllerDelegate?
+    weak var delegate: SpotlightTransitionControllerDelegate?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.25
