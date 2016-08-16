@@ -9,27 +9,27 @@
 import UIKit
 
 @objc public protocol SpotlightViewControllerDelegate: class {
-    optional func spotlightViewControllerWillPresent(viewController: SpotlightViewController, animated: Bool)
-    optional func spotlightViewControllerWillDismiss(viewController: SpotlightViewController, animated: Bool)
-    optional func spotlightViewControllerTapped(viewController: SpotlightViewController, isInsideSpotlight: Bool)
+    @objc optional func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool)
+    @objc optional func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool)
+    @objc optional func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool)
 }
 
-public class SpotlightViewController: UIViewController {
+open class SpotlightViewController: UIViewController {
     
-    public weak var delegate: SpotlightViewControllerDelegate?
+    open weak var delegate: SpotlightViewControllerDelegate?
     
-    private lazy var transitionController: SpotlightTransitionController = {
+    fileprivate lazy var transitionController: SpotlightTransitionController = {
         let controller = SpotlightTransitionController()
         controller.delegate = self
         return controller
     }()
     
-    public let spotlightView = SpotlightView()
-    public let contentView = UIView()
+    open let spotlightView = SpotlightView()
+    open let contentView = UIView()
     
-    public var alpha: CGFloat = 0.5
+    open var alpha: CGFloat = 0.5
 
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         commonInit()
     }
@@ -39,75 +39,75 @@ public class SpotlightViewController: UIViewController {
         commonInit()
     }
     
-    private func commonInit() {
-        modalPresentationStyle = .OverCurrentContext
+    fileprivate func commonInit() {
+        modalPresentationStyle = .overCurrentContext
         transitioningDelegate = self
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         setupSpotlightView(alpha)
         setupContentView()
         setupTapGesture()
         
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
     }
     
-    public override func viewDidAppear(animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    private func setupSpotlightView(alpha: CGFloat) {
+    fileprivate func setupSpotlightView(_ alpha: CGFloat) {
         spotlightView.frame = view.bounds
         spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: alpha)
-        spotlightView.userInteractionEnabled = false
-        view.insertSubview(spotlightView, atIndex: 0)
-        view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
-            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .Equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
+        spotlightView.isUserInteractionEnabled = false
+        view.insertSubview(spotlightView, at: 0)
+        view.addConstraints([NSLayoutAttribute.top, .bottom, .left, .right].map {
+            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
             })
     }
     
-    private func setupContentView() {
+    fileprivate func setupContentView() {
         contentView.frame = view.bounds
-        contentView.backgroundColor = UIColor.clearColor()
+        contentView.backgroundColor = UIColor.clear
         view.addSubview(contentView)
-        view.addConstraints([NSLayoutAttribute.Top, .Bottom, .Left, .Right].map {
-            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .Equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
+        view.addConstraints([NSLayoutAttribute.top, .bottom, .left, .right].map {
+            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
             })
     }
     
-    private func setupTapGesture() {
+    fileprivate func setupTapGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(SpotlightViewController.viewTapped(_:)));
         view.addGestureRecognizer(gesture)
     }
 }
 
 extension SpotlightViewController {
-    func viewTapped(gesture: UITapGestureRecognizer) {
-        let touchPoint = gesture.locationInView(spotlightView)
+    func viewTapped(_ gesture: UITapGestureRecognizer) {
+        let touchPoint = gesture.location(in: spotlightView)
         let isInside = spotlightView.spotlight?.frame.contains(touchPoint) ?? false
         delegate?.spotlightViewControllerTapped?(self, isInsideSpotlight: isInside)
     }
 }
 
 extension SpotlightViewController: SpotlightTransitionControllerDelegate {
-    func spotlightTransitionWillPresent(controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
-        delegate?.spotlightViewControllerWillPresent?(self, animated: transitionContext.isAnimated())
+    func spotlightTransitionWillPresent(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
+        delegate?.spotlightViewControllerWillPresent?(self, animated: transitionContext.isAnimated)
     }
     
-    func spotlightTransitionWillDismiss(controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
-        delegate?.spotlightViewControllerWillDismiss?(self, animated: transitionContext.isAnimated())
+    func spotlightTransitionWillDismiss(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
+        delegate?.spotlightViewControllerWillDismiss?(self, animated: transitionContext.isAnimated)
     }
 }
 
 extension SpotlightViewController: UIViewControllerTransitioningDelegate {
-    public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transitionController.isPresent = true
         return transitionController
     }
     
-    public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transitionController.isPresent = false
         return transitionController
     }

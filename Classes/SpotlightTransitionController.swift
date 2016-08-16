@@ -9,8 +9,8 @@
 import UIKit
 
 protocol SpotlightTransitionControllerDelegate: class {
-    func spotlightTransitionWillPresent(controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning)
-    func spotlightTransitionWillDismiss(controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning)
+    func spotlightTransitionWillPresent(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning)
+    func spotlightTransitionWillDismiss(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning)
 }
 
 class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitioning {
@@ -18,11 +18,11 @@ class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitio
     
     weak var delegate: SpotlightTransitionControllerDelegate?
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.25
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if isPresent {
             animateTransitionForPresent(transitionContext)
         } else {
@@ -30,25 +30,25 @@ class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitio
         }
     }
     
-    private func animateTransitionForPresent(transitionContext: UIViewControllerContextTransitioning) {
-        guard let source = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            let destination = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+    fileprivate func animateTransitionForPresent(_ transitionContext: UIViewControllerContextTransitioning) {
+        guard let source = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+            let destination = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
                 fatalError()
         }
-        transitionContext.containerView()?.insertSubview(destination.view, aboveSubview: source.view)
+        transitionContext.containerView.insertSubview(destination.view, aboveSubview: source.view)
         
         destination.view.alpha = 0
         
         source.viewWillDisappear(true)
         destination.viewWillAppear(true)
         
-        let duration = transitionDuration(transitionContext)
+        let duration = transitionDuration(using: transitionContext)
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             transitionContext.completeTransition(true)
         }
         { // In transation
-            UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut,
+            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(),
                 animations: {
                     destination.view.alpha = 1.0
                 },
@@ -62,23 +62,23 @@ class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitio
         CATransaction.commit()
     }
     
-    private func animateTransitionForDismiss(transitionContext: UIViewControllerContextTransitioning) {
-        guard let source = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            let destination = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+    fileprivate func animateTransitionForDismiss(_ transitionContext: UIViewControllerContextTransitioning) {
+        guard let source = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+            let destination = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
                 fatalError()
         }
         
         source.viewWillDisappear(true)
         destination.viewWillAppear(true)
         
-        let duration = transitionDuration(transitionContext)
+        let duration = transitionDuration(using: transitionContext)
         
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             transitionContext.completeTransition(true)
         }
         { // In transation
-            UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut,
+            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(),
                 animations: {
                     source.view.alpha = 0.0
                 },
@@ -92,6 +92,6 @@ class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitio
         CATransaction.commit()
     }
     
-    func animationEnded(transitionCompleted: Bool) {
+    func animationEnded(_ transitionCompleted: Bool) {
     }
 }
