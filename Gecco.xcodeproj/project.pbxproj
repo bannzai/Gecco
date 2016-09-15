@@ -512,6 +512,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.GeccoExample;
 				PRODUCT_NAME = Gecco;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -523,6 +524,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.GeccoExample;
 				PRODUCT_NAME = Gecco;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
