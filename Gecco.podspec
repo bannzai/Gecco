@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Gecco'
-  s.version = '0.2.2'
+  s.version = '1.0.0'
   s.license = 'MIT'
   s.homepage = 'https://github.com/yukiasai/'
   s.summary = 'Simply highlight items for your tutorial walkthrough, written in Swift'
