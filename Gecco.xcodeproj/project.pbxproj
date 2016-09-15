@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		467D20681C48883C0033D5CA /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467D205D1C48883C0033D5CA /* Gecco.framework */; };
-		467D20B31C488D620033D5CA /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B21C488D620033D5CA /* SpotlightViewController.swift */; };
-		467D20BD1C4DBF900033D5CA /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
-		46A637221C49D06B0000AF22 /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
-		46A637251C4B08CA0000AF22 /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637231C4B07EB0000AF22 /* Spotlight.swift */; };
 		46C6AE2D1C4DF9A8004AAE2F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE231C4DF9A8004AAE2F /* Info.plist */; };
 		46C6AE2F1C4DF9AF004AAE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE1A1C4DF9A8004AAE2F /* AppDelegate.swift */; };
 		46C6AE301C4DF9BB004AAE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE1B1C4DF9A8004AAE2F /* Assets.xcassets */; };
@@ -23,11 +19,8 @@
 		46C6AE381C4DFA01004AAE2F /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B21C488D620033D5CA /* SpotlightViewController.swift */; };
 		46C6AE391C4DFA01004AAE2F /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
 		46C6AE3A1C4DFA22004AAE2F /* GeccoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE241C4DF9A8004AAE2F /* GeccoTests.swift */; };
-		46C6AE3B1C4DFA28004AAE2F /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637231C4B07EB0000AF22 /* Spotlight.swift */; };
-		46C6AE3C1C4DFA28004AAE2F /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
-		46C6AE3D1C4DFA28004AAE2F /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B21C488D620033D5CA /* SpotlightViewController.swift */; };
-		46C6AE3E1C4DFA28004AAE2F /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
 		46C6AE421C4E0A5E004AAE2F /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE411C4E0A5E004AAE2F /* AnnotationViewController.swift */; };
+		B6EBAB771D8A477A004297E0 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467D205D1C48883C0033D5CA /* Gecco.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +36,7 @@
 /* Begin PBXFileReference section */
 		467D205D1C48883C0033D5CA /* Gecco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gecco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D20671C48883C0033D5CA /* Gecco.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gecco.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		467D20811C488C920033D5CA /* Gecco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gecco.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		467D20811C488C920033D5CA /* GeccoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeccoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D20B21C488D620033D5CA /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
 		467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SpotlightTransitionController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		46A637201C49CEB00000AF22 /* SpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SpotlightView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -80,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EBAB771D8A477A004297E0 /* Gecco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +96,7 @@
 			children = (
 				467D205D1C48883C0033D5CA /* Gecco.framework */,
 				467D20671C48883C0033D5CA /* Gecco.xctest */,
-				467D20811C488C920033D5CA /* Gecco.app */,
+				467D20811C488C920033D5CA /* GeccoExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,7 +206,7 @@
 			);
 			name = GeccoExample;
 			productName = SpotExample;
-			productReference = 467D20811C488C920033D5CA /* Gecco.app */;
+			productReference = 467D20811C488C920033D5CA /* GeccoExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -302,11 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46C6AE3E1C4DFA28004AAE2F /* SpotlightTransitionController.swift in Sources */,
-				46C6AE3B1C4DFA28004AAE2F /* Spotlight.swift in Sources */,
-				46C6AE3D1C4DFA28004AAE2F /* SpotlightViewController.swift in Sources */,
 				46C6AE3A1C4DFA22004AAE2F /* GeccoTests.swift in Sources */,
-				46C6AE3C1C4DFA28004AAE2F /* SpotlightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,11 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46C6AE341C4DF9F7004AAE2F /* ViewController.swift in Sources */,
-				467D20B31C488D620033D5CA /* SpotlightViewController.swift in Sources */,
-				46A637251C4B08CA0000AF22 /* Spotlight.swift in Sources */,
-				46A637221C49D06B0000AF22 /* SpotlightView.swift in Sources */,
 				46C6AE2F1C4DF9AF004AAE2F /* AppDelegate.swift in Sources */,
-				467D20BD1C4DBF900033D5CA /* SpotlightTransitionController.swift in Sources */,
 				46C6AE421C4E0A5E004AAE2F /* AnnotationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +497,8 @@
 				INFOPLIST_FILE = GeccoExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.GeccoExample;
-				PRODUCT_NAME = Gecco;
+				PRODUCT_NAME = GeccoExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -522,7 +509,8 @@
 				INFOPLIST_FILE = GeccoExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.GeccoExample;
-				PRODUCT_NAME = Gecco;
+				PRODUCT_NAME = GeccoExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
