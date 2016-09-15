@@ -14,18 +14,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    @IBAction func buttonPressed(sender: AnyObject) {
+    @IBAction func buttonPressed(_ sender: AnyObject) {
         presentAnnotation()
     }
     
     func presentAnnotation() {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Annotation") as! AnnotationViewController
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Annotation") as! AnnotationViewController
         viewController.alpha = 0.5
-        presentViewController(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
 }
 
