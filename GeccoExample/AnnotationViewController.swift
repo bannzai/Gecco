@@ -21,8 +21,8 @@ class AnnotationViewController: SpotlightViewController {
         delegate = self
     }
     
-    func next(labelAnimated: Bool) {
-        updateAnnotationView(animated: labelAnimated)
+    func next(_ labelAnimated: Bool) {
+        updateAnnotationView(labelAnimated)
         
         let screenSize = UIScreen.main.bounds.size
         switch stepIndex {
@@ -43,7 +43,7 @@ class AnnotationViewController: SpotlightViewController {
         stepIndex += 1
     }
     
-    func updateAnnotationView(animated: Bool) {
+    func updateAnnotationView(_ animated: Bool) {
         annotationViews.enumerated().forEach { index, view in
             UIView.animate(withDuration: animated ? 0.25 : 0) {
                 view.alpha = index == self.stepIndex ? 1 : 0
@@ -54,11 +54,11 @@ class AnnotationViewController: SpotlightViewController {
 
 extension AnnotationViewController: SpotlightViewControllerDelegate {
     func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool) {
-        next(labelAnimated: false)
+        next(false)
     }
     
     func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool) {
-        next(labelAnimated: true)
+        next(true)
     }
     
     func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool) {
