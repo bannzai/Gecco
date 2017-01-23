@@ -20,8 +20,8 @@ import Gecco
 class ViewController: UIViewController {
   func showSpotlight() {
     let spotlightViewController = SpotlightViewController()
-    presentViewController(spotlightViewController, animated: true, completion: nil)
-    spotlightViewController.spotlightView.appear(Spotlight.Oval(center: CGPointMake(100, 100), diameter: 100))
+    present(spotlightViewController, animated: true, completion: nil)
+    spotlightViewController.spotlightView.appear(Spotlight.Oval(center: CGPointMake(x: 100, y: 100), diameter: 100))
   }
 }
 ```
