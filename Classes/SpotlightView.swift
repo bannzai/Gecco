@@ -18,7 +18,7 @@ open class SpotlightView: UIView {
         return layer
     }()
     
-    var spotlight: SpotlightType?
+    var spotlights: [SpotlightType] = []
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +42,12 @@ open class SpotlightView: UIView {
     
     open func appear(_ spotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         maskLayer.add(appearAnimation(duration, spotlight: spotlight), forKey: nil)
-        self.spotlight = spotlight
+        self.spotlights = [spotlight]
+    }
+   
+    open func appear(_ spotlights: [SpotlightType], duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+        maskLayer.add(appearAnimation(duration, spotlights: spotlights), forKey: nil)
+        self.spotlights = spotlights
     }
     
     open func disappear(_ duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
@@ -62,14 +67,14 @@ open class SpotlightView: UIView {
 extension SpotlightView {
     fileprivate func moveDirect(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         maskLayer.add(moveAnimation(duration, toSpotlight: toSpotlight), forKey: nil)
-        spotlight = toSpotlight
+        spotlights = [toSpotlight]
     }
     
     fileprivate func moveDisappear(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             self.appear(toSpotlight, duration: duration)
-            self.spotlight = toSpotlight
+            self.spotlights = [toSpotlight]
         }
         disappear(duration)
         CATransaction.commit()
@@ -88,9 +93,43 @@ extension SpotlightView {
         return pathAnimation(duration, beginPath:beginPath, endPath: endPath)
     }
     
+    fileprivate func appearAnimation(_ duration: TimeInterval, spotlights: [SpotlightType]) -> CAAnimation {
+        var combinedPath = UIBezierPath(rect: frame)
+        var animations:[CAAnimation] = []
+        
+        spotlights.forEach { spotlight in
+            var beginPath = UIBezierPath(cgPath: combinedPath.cgPath)
+            var endPath = UIBezierPath(cgPath: combinedPath.cgPath)
+            
+            beginPath.append(spotlight.infinitesmalPath)
+            endPath.append(spotlight.path)
+            
+            animations.append(pathAnimation(duration, beginTime: duration * TimeInterval(animations.count), beginPath: beginPath, endPath: endPath))
+            
+            combinedPath = endPath
+        }
+        
+        return animationGroup(duration: duration, animations: animations)
+    }
+    
     fileprivate func disappearAnimation(_ duration: TimeInterval) -> CAAnimation {
-        let endPath = maskPath(spotlight!.infinitesmalPath)
-        return pathAnimation(duration, beginPath:nil, endPath: endPath)
+        var animations:[CAAnimation] = []
+        var spotlights = self.spotlights
+        
+        while !spotlights.isEmpty {
+            let hideMe = spotlights.removeLast()
+            
+            let path = spotlights.reduce(UIBezierPath(rect: frame)) {
+                $0.append($1.path)
+                return $0
+            }
+            
+            path.append(hideMe.infinitesmalPath)
+            
+            animations.append(pathAnimation(duration, beginTime: duration * TimeInterval(animations.count), beginPath: nil, endPath: path))
+        }
+        
+        return animationGroup(duration: duration, animations: animations)
     }
     
     fileprivate func moveAnimation(_ duration: TimeInterval, toSpotlight: SpotlightType) -> CAAnimation {
@@ -98,7 +137,17 @@ extension SpotlightView {
         return pathAnimation(duration, beginPath:nil, endPath: endPath)
     }
     
-    fileprivate func pathAnimation(_ duration: TimeInterval, beginPath: UIBezierPath?, endPath: UIBezierPath) -> CAAnimation {
+    fileprivate func animationGroup(duration:TimeInterval , animations: [CAAnimation]) -> CAAnimationGroup {
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = animations
+        animationGroup.isRemovedOnCompletion = false
+        animationGroup.duration = duration * Double(animations.count)
+        animationGroup.fillMode = kCAFillModeForwards
+        
+        return animationGroup
+    }
+    
+    fileprivate func pathAnimation(_ duration: TimeInterval, beginTime: TimeInterval = 0, beginPath: UIBezierPath?, endPath: UIBezierPath) -> CAAnimation {
         let animation = CABasicAnimation(keyPath: "path")
         animation.duration = duration
         animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.66, 0, 0.33, 1)
@@ -108,6 +157,7 @@ extension SpotlightView {
         animation.toValue = endPath.cgPath
         animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeForwards
+        animation.beginTime = beginTime
         return animation
     }
 }

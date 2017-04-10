@@ -39,7 +39,7 @@ class AnnotationViewController: SpotlightViewController {
         default:
             break
         }
-        
+ 
         stepIndex += 1
     }
     
@@ -57,7 +57,7 @@ extension AnnotationViewController: SpotlightViewControllerDelegate {
         next(false)
     }
     
-    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool) {
+    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, spotlightIndex: NSNumber?) {
         next(true)
     }
     
