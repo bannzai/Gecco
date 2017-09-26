@@ -14,7 +14,7 @@ protocol SpotlightTransitionControllerDelegate: class {
 }
 
 class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitioning {
-    var isPresent = false
+    @objc var isPresent = false
     
     weak var delegate: SpotlightTransitionControllerDelegate?
     

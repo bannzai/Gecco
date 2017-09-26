@@ -13,7 +13,7 @@ class AnnotationViewController: SpotlightViewController {
     
     @IBOutlet var annotationViews: [UIView]!
     
-    var stepIndex: Int = 0
+    @objc var stepIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class AnnotationViewController: SpotlightViewController {
         delegate = self
     }
     
-    func next(_ labelAnimated: Bool) {
+    @objc func next(_ labelAnimated: Bool) {
         updateAnnotationView(labelAnimated)
         
         let screenSize = UIScreen.main.bounds.size
@@ -43,7 +43,7 @@ class AnnotationViewController: SpotlightViewController {
         stepIndex += 1
     }
     
-    func updateAnnotationView(_ animated: Bool) {
+    @objc func updateAnnotationView(_ animated: Bool) {
         annotationViews.enumerated().forEach { index, view in
             UIView.animate(withDuration: animated ? 0.25 : 0) {
                 view.alpha = index == self.stepIndex ? 1 : 0

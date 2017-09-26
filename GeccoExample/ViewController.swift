@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         presentAnnotation()
     }
     
-    func presentAnnotation() {
+    @objc func presentAnnotation() {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Annotation") as! AnnotationViewController
         viewController.alpha = 0.5
         present(viewController, animated: true, completion: nil)

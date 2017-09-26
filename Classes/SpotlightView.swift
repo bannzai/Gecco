@@ -9,7 +9,7 @@
 import UIKit
 
 open class SpotlightView: UIView {
-    open static let defaultAnimateDuration: TimeInterval = 0.25
+    @objc open static let defaultAnimateDuration: TimeInterval = 0.25
     
     fileprivate lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
@@ -45,7 +45,7 @@ open class SpotlightView: UIView {
         self.spotlight = spotlight
     }
     
-    open func disappear(_ duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+    @objc open func disappear(_ duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         maskLayer.add(disappearAnimation(duration), forKey: nil)
     }
    
