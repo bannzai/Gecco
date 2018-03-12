@@ -28,6 +28,8 @@ open class SpotlightViewController: UIViewController {
     open let contentView = UIView()
     
     open var alpha: CGFloat = 0.5
+    open var spotlightBackgroundView: UIView?
+    open var spotlightBackgroundColor: UIColor = .black
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -60,7 +62,16 @@ open class SpotlightViewController: UIViewController {
     
     fileprivate func setupSpotlightView(_ alpha: CGFloat) {
         spotlightView.frame = view.bounds
-        spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: alpha)
+
+        if let customBackgroundView = spotlightBackgroundView {
+            spotlightView.backgroundColor = UIColor.clear
+            customBackgroundView.frame = view.bounds
+            spotlightView.insertSubview(customBackgroundView, at: 0)
+        } else {
+            spotlightView.backgroundColor = spotlightBackgroundColor
+        }
+
+        spotlightView.alpha = alpha
         spotlightView.isUserInteractionEnabled = false
         view.insertSubview(spotlightView, at: 0)
         view.addConstraints([NSLayoutAttribute.top, .bottom, .left, .right].map {
