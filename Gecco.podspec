@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
-  s.name = 'Gecco'
+  s.name = 'GeccoGreenRoad'
   s.version = '1.0.0'
   s.license = 'MIT'
-  s.homepage = 'https://github.com/yukiasai/'
+  s.homepage = 'https://github.com/alexvaiman/'
   s.summary = 'Simply highlight items for your tutorial walkthrough, written in Swift'
-  s.authors = { 'yukiasai' => 'yukiasai@gmail.com' }
-  s.source = { :git => 'https://github.com/yukiasai/Gecco.git', :tag => s.version }
+  s.authors = { 'Alex' => 'Alex.vaiman@greenroad.com' }
+  s.source = { :git => 'git@github.com:alexvaiman/Gecco.git', :tag => s.version }
 
   s.ios.deployment_target = '8.0'
   
