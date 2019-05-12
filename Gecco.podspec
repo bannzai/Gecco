@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/alexvaiman/'
   s.summary = 'Simply highlight items for your tutorial walkthrough, written in Swift'
   s.authors = { 'Alex' => 'Alex.vaiman@greenroad.com' }
-  s.source = { :git => 'git@github.com:alexvaiman/Gecco.git', :tag => s.version }
+  s.source = { :git => 'https://github.com/alexvaiman/Gecco.git', :tag => s.version }
 
   s.ios.deployment_target = '8.0'
   
