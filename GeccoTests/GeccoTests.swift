@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import Gecco
 
 class GeccoTests: XCTestCase {
     
