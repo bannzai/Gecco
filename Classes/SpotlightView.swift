@@ -9,11 +9,11 @@
 import UIKit
 
 open class SpotlightView: UIView {
-    open static let defaultAnimateDuration: TimeInterval = 0.25
+    public static let defaultAnimateDuration: TimeInterval = 0.25
     
     fileprivate lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        layer.fillRule = kCAFillRuleEvenOdd
+        layer.fillRule = CAShapeLayerFillRule.evenOdd
         layer.fillColor = UIColor.black.cgColor
         return layer
     }()
@@ -107,7 +107,7 @@ extension SpotlightView {
         }
         animation.toValue = endPath.cgPath
         animation.isRemovedOnCompletion = false
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         return animation
     }
 }

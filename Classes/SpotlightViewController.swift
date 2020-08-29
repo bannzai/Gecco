@@ -24,10 +24,10 @@ open class SpotlightViewController: UIViewController {
         return controller
     }()
     
-    open let spotlightView = SpotlightView()
-    open let contentView = UIView()
+    public let spotlightView = SpotlightView()
+    public let contentView = UIView()
     
-    open var alpha: CGFloat = 0.5
+    public var alpha: CGFloat = 0.5
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -63,18 +63,18 @@ open class SpotlightViewController: UIViewController {
         spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: alpha)
         spotlightView.isUserInteractionEnabled = false
         view.insertSubview(spotlightView, at: 0)
-        view.addConstraints([NSLayoutAttribute.top, .bottom, .left, .right].map {
-            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
-            })
+        view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
+            NSLayoutConstraint(item: view as Any, attribute: $0, relatedBy: .equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
+        })
     }
     
     fileprivate func setupContentView() {
         contentView.frame = view.bounds
         contentView.backgroundColor = UIColor.clear
         view.addSubview(contentView)
-        view.addConstraints([NSLayoutAttribute.top, .bottom, .left, .right].map {
-            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
-            })
+        view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
+            NSLayoutConstraint(item: view as Any, attribute: $0, relatedBy: .equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
+        })
     }
     
     fileprivate func setupTapGesture() {
