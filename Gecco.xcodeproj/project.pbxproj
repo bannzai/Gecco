@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		467D20681C48883C0033D5CA /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467D205D1C48883C0033D5CA /* Gecco.framework */; };
 		46C6AE2F1C4DF9AF004AAE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE1A1C4DF9A8004AAE2F /* AppDelegate.swift */; };
 		46C6AE301C4DF9BB004AAE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE1B1C4DF9A8004AAE2F /* Assets.xcassets */; };
 		46C6AE311C4DF9EA004AAE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE1E1C4DF9A8004AAE2F /* Main.storyboard */; };
@@ -17,24 +16,12 @@
 		46C6AE371C4DFA01004AAE2F /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
 		46C6AE381C4DFA01004AAE2F /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B21C488D620033D5CA /* SpotlightViewController.swift */; };
 		46C6AE391C4DFA01004AAE2F /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
-		46C6AE3A1C4DFA22004AAE2F /* GeccoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE241C4DF9A8004AAE2F /* GeccoTests.swift */; };
 		46C6AE421C4E0A5E004AAE2F /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE411C4E0A5E004AAE2F /* AnnotationViewController.swift */; };
 		B6EBAB771D8A477A004297E0 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467D205D1C48883C0033D5CA /* Gecco.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		467D20691C48883C0033D5CA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 467D20541C48883C0033D5CA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 467D205C1C48883C0033D5CA;
-			remoteInfo = Spot;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		467D205D1C48883C0033D5CA /* Gecco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gecco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		467D20671C48883C0033D5CA /* Gecco.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gecco.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D20811C488C920033D5CA /* GeccoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeccoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D20B21C488D620033D5CA /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
 		467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SpotlightTransitionController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -47,8 +34,6 @@
 		46C6AE1F1C4DF9A8004AAE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46C6AE201C4DF9A8004AAE2F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46C6AE211C4DF9A8004AAE2F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		46C6AE231C4DF9A8004AAE2F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46C6AE241C4DF9A8004AAE2F /* GeccoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeccoTests.swift; sourceTree = "<group>"; };
 		46C6AE411C4E0A5E004AAE2F /* AnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,14 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		467D20641C48883C0033D5CA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				467D20681C48883C0033D5CA /* Gecco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +62,6 @@
 				467D20781C48889F0033D5CA /* Classes */,
 				46C6AE161C4DF9A8004AAE2F /* Gecco */,
 				46C6AE191C4DF9A8004AAE2F /* GeccoExample */,
-				46C6AE221C4DF9A8004AAE2F /* GeccoTests */,
 				467D205E1C48883C0033D5CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				467D205D1C48883C0033D5CA /* Gecco.framework */,
-				467D20671C48883C0033D5CA /* Gecco.xctest */,
 				467D20811C488C920033D5CA /* GeccoExample.app */,
 			);
 			name = Products;
@@ -133,15 +108,6 @@
 			path = GeccoExample;
 			sourceTree = "<group>";
 		};
-		46C6AE221C4DF9A8004AAE2F /* GeccoTests */ = {
-			isa = PBXGroup;
-			children = (
-				46C6AE231C4DF9A8004AAE2F /* Info.plist */,
-				46C6AE241C4DF9A8004AAE2F /* GeccoTests.swift */,
-			);
-			path = GeccoTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -172,24 +138,6 @@
 			productName = Spot;
 			productReference = 467D205D1C48883C0033D5CA /* Gecco.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		467D20661C48883C0033D5CA /* GeccoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 467D20741C48883C0033D5CA /* Build configuration list for PBXNativeTarget "GeccoTests" */;
-			buildPhases = (
-				467D20631C48883C0033D5CA /* Sources */,
-				467D20641C48883C0033D5CA /* Frameworks */,
-				467D20651C48883C0033D5CA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				467D206A1C48883C0033D5CA /* PBXTargetDependency */,
-			);
-			name = GeccoTests;
-			productName = SpotTests;
-			productReference = 467D20671C48883C0033D5CA /* Gecco.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		467D20801C488C920033D5CA /* GeccoExample */ = {
 			isa = PBXNativeTarget;
@@ -222,10 +170,6 @@
 						CreatedOnToolsVersion = 7.1.1;
 						LastSwiftMigration = 0910;
 					};
-					467D20661C48883C0033D5CA = {
-						CreatedOnToolsVersion = 7.1.1;
-						LastSwiftMigration = 0910;
-					};
 					467D20801C488C920033D5CA = {
 						CreatedOnToolsVersion = 7.1.1;
 						LastSwiftMigration = 0800;
@@ -246,7 +190,6 @@
 			projectRoot = "";
 			targets = (
 				467D205C1C48883C0033D5CA /* Gecco */,
-				467D20661C48883C0033D5CA /* GeccoTests */,
 				467D20801C488C920033D5CA /* GeccoExample */,
 			);
 		};
@@ -254,13 +197,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		467D205B1C48883C0033D5CA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		467D20651C48883C0033D5CA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -291,14 +227,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		467D20631C48883C0033D5CA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				46C6AE3A1C4DFA22004AAE2F /* GeccoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		467D207D1C488C920033D5CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,14 +238,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		467D206A1C48883C0033D5CA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 467D205C1C48883C0033D5CA /* Gecco */;
-			targetProxy = 467D20691C48883C0033D5CA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		46C6AE1C1C4DF9A8004AAE2F /* LaunchScreen.storyboard */ = {
@@ -496,30 +416,6 @@
 			};
 			name = Release;
 		};
-		467D20751C48883C0033D5CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = GeccoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.GeccoTests;
-				PRODUCT_NAME = Gecco;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		467D20761C48883C0033D5CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = GeccoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = yukiasai.GeccoTests;
-				PRODUCT_NAME = Gecco;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		467D20A71C488C930033D5CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -561,15 +457,6 @@
 			buildConfigurations = (
 				467D20721C48883C0033D5CA /* Debug */,
 				467D20731C48883C0033D5CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		467D20741C48883C0033D5CA /* Build configuration list for PBXNativeTarget "GeccoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				467D20751C48883C0033D5CA /* Debug */,
-				467D20761C48883C0033D5CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
