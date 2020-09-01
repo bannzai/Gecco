@@ -235,10 +235,9 @@
 			};
 			buildConfigurationList = 467D20571C48883C0033D5CA /* Build configuration list for PBXProject "Gecco" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
