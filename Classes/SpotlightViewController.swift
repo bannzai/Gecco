@@ -64,7 +64,7 @@ open class SpotlightViewController: UIViewController {
         spotlightView.isUserInteractionEnabled = false
         view.insertSubview(spotlightView, at: 0)
         view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
-            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
+            NSLayoutConstraint(item: view!, attribute: $0, relatedBy: .equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
             })
     }
     
@@ -73,7 +73,7 @@ open class SpotlightViewController: UIViewController {
         contentView.backgroundColor = UIColor.clear
         view.addSubview(contentView)
         view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
-            NSLayoutConstraint(item: view, attribute: $0, relatedBy: .equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
+            NSLayoutConstraint(item: view!, attribute: $0, relatedBy: .equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
             })
     }
     
