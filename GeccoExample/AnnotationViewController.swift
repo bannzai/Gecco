@@ -20,19 +20,41 @@ class AnnotationViewController: SpotlightViewController {
         
         delegate = self
     }
+
+    var viewControllerHasNavigationItem: UIViewController? {
+        if let navigationController = presentingViewController as? UINavigationController {
+            return navigationController.viewControllers[0]
+        }
+        return presentingViewController
+    }
     
+    func extractRightBarButtonConvertedFrames() -> (first: CGRect, second: CGRect) {
+        guard
+            let firstRightBarButtonItem = viewControllerHasNavigationItem?.navigationItem.rightBarButtonItems?[0].value(forKey: "view") as? UIView,
+            let secondRightBarButtonItem = viewControllerHasNavigationItem?.navigationItem.rightBarButtonItems?[1].value(forKey: "view") as? UIView
+            else {
+                fatalError("Unexpected extract view from UIBarButtonItem via value(forKey:)")
+        }
+        return (
+            first: firstRightBarButtonItem.convert(firstRightBarButtonItem.bounds, to: view),
+            second: secondRightBarButtonItem.convert(secondRightBarButtonItem.bounds, to: view)
+        )
+    }
+
     func next(_ labelAnimated: Bool) {
         updateAnnotationView(labelAnimated)
-        
+
+        let rigtBarButtonFrames = extractRightBarButtonConvertedFrames()
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let navigationBarHeight: CGFloat = 44
         let screenSize = UIScreen.main.bounds.size
         switch stepIndex {
         case 0:
-            spotlightView.appear(Spotlight.Oval(center: CGPoint(x: screenSize.width - 26, y: statusBarHeight + 22), diameter: 50))
+            spotlightView.appear(Spotlight.Oval(center: CGPoint(x: rigtBarButtonFrames.first.midX, y: rigtBarButtonFrames.first.midY), diameter: 50))
         case 1:
-            spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 75, y: statusBarHeight + 22), diameter: 50))
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: rigtBarButtonFrames.second.midX, y: rigtBarButtonFrames.second.midY), diameter: 50))
         case 2:
-            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width / 2, y: statusBarHeight + 22), size: CGSize(width: 120, height: 40), cornerRadius: 6), moveType: .disappear)
+            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width / 2, y: statusBarHeight + navigationBarHeight / 2), size: CGSize(width: 120, height: 40), cornerRadius: 6), moveType: .disappear)
         case 3:
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width / 2, y: 200 + view.safeAreaInsets.top), diameter: 220), moveType: .disappear)
         case 4:
