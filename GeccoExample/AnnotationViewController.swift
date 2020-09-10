@@ -24,16 +24,17 @@ class AnnotationViewController: SpotlightViewController {
     func next(_ labelAnimated: Bool) {
         updateAnnotationView(labelAnimated)
         
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let screenSize = UIScreen.main.bounds.size
         switch stepIndex {
         case 0:
-            spotlightView.appear(Spotlight.Oval(center: CGPoint(x: screenSize.width - 26, y: 42), diameter: 50))
+            spotlightView.appear(Spotlight.Oval(center: CGPoint(x: screenSize.width - 26, y: statusBarHeight + 22), diameter: 50))
         case 1:
-            spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 75, y: 42), diameter: 50))
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 75, y: statusBarHeight + 22), diameter: 50))
         case 2:
-            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width / 2, y: 42), size: CGSize(width: 120, height: 40), cornerRadius: 6), moveType: .disappear)
+            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width / 2, y: statusBarHeight + 22), size: CGSize(width: 120, height: 40), cornerRadius: 6), moveType: .disappear)
         case 3:
-            spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width / 2, y: view.safeAreaInsets.top + 200), diameter: 220), moveType: .disappear)
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width / 2, y: 200 + view.safeAreaInsets.top), diameter: 220), moveType: .disappear)
         case 4:
             dismiss(animated: true, completion: nil)
         default:
