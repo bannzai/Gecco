@@ -52,10 +52,6 @@ open class SpotlightViewController: UIViewController {
         view.backgroundColor = UIColor.clear
     }
     
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     fileprivate func setupSpotlightView(_ alpha: CGFloat) {
         spotlightView.frame = view.bounds
         spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: alpha)
