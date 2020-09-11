@@ -85,17 +85,17 @@ extension SpotlightView {
     fileprivate func appearAnimation(_ duration: TimeInterval, spotlight: SpotlightType) -> CAAnimation {
         let beginPath = maskPath(spotlight.infinitesmalPath)
         let endPath = maskPath(spotlight.path)
-        return pathAnimation(duration, beginPath:beginPath, endPath: endPath)
+        return pathAnimation(duration, beginPath: beginPath, endPath: endPath)
     }
     
     fileprivate func disappearAnimation(_ duration: TimeInterval) -> CAAnimation {
         let endPath = maskPath(spotlight!.infinitesmalPath)
-        return pathAnimation(duration, beginPath:nil, endPath: endPath)
+        return pathAnimation(duration, beginPath: nil, endPath: endPath)
     }
     
     fileprivate func moveAnimation(_ duration: TimeInterval, toSpotlight: SpotlightType) -> CAAnimation {
         let endPath = maskPath(toSpotlight.path)
-        return pathAnimation(duration, beginPath:nil, endPath: endPath)
+        return pathAnimation(duration, beginPath: nil, endPath: endPath)
     }
     
     fileprivate func pathAnimation(_ duration: TimeInterval, beginPath: UIBezierPath?, endPath: UIBezierPath) -> CAAnimation {
