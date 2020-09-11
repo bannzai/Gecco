@@ -21,26 +21,6 @@ class AnnotationViewController: SpotlightViewController {
         delegate = self
     }
 
-    var viewControllerHasNavigationItem: UIViewController? {
-        if let navigationController = presentingViewController as? UINavigationController {
-            return navigationController.viewControllers[0]
-        }
-        return presentingViewController
-    }
-    
-    func extractRightBarButtonConvertedFrames() -> (first: CGRect, second: CGRect) {
-        guard
-            let firstRightBarButtonItem = viewControllerHasNavigationItem?.navigationItem.rightBarButtonItems?[0].value(forKey: "view") as? UIView,
-            let secondRightBarButtonItem = viewControllerHasNavigationItem?.navigationItem.rightBarButtonItems?[1].value(forKey: "view") as? UIView
-            else {
-                fatalError("Unexpected extract view from UIBarButtonItem via value(forKey:)")
-        }
-        return (
-            first: firstRightBarButtonItem.convert(firstRightBarButtonItem.bounds, to: view),
-            second: secondRightBarButtonItem.convert(secondRightBarButtonItem.bounds, to: view)
-        )
-    }
-
     func next(_ labelAnimated: Bool) {
         updateAnnotationView(labelAnimated)
 
@@ -73,6 +53,29 @@ class AnnotationViewController: SpotlightViewController {
             }
         }
     }
+}
+
+private extension AnnotationViewController {
+    var viewControllerHasNavigationItem: UIViewController? {
+        if let navigationController = presentingViewController as? UINavigationController {
+            return navigationController.viewControllers[0]
+        }
+        return presentingViewController
+    }
+    
+    func extractRightBarButtonConvertedFrames() -> (first: CGRect, second: CGRect) {
+        guard
+            let firstRightBarButtonItem = viewControllerHasNavigationItem?.navigationItem.rightBarButtonItems?[0].value(forKey: "view") as? UIView,
+            let secondRightBarButtonItem = viewControllerHasNavigationItem?.navigationItem.rightBarButtonItems?[1].value(forKey: "view") as? UIView
+            else {
+                fatalError("Unexpected extract view from UIBarButtonItem via value(forKey:)")
+        }
+        return (
+            first: firstRightBarButtonItem.convert(firstRightBarButtonItem.bounds, to: view),
+            second: secondRightBarButtonItem.convert(secondRightBarButtonItem.bounds, to: view)
+        )
+    }
+
 }
 
 extension AnnotationViewController: SpotlightViewControllerDelegate {
