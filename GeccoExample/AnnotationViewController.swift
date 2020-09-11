@@ -56,6 +56,20 @@ class AnnotationViewController: SpotlightViewController {
     }
 }
 
+extension AnnotationViewController: SpotlightViewControllerDelegate {
+    func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool) {
+        next(false)
+    }
+    
+    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool) {
+        next(true)
+    }
+    
+    func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool) {
+        spotlightView.disappear()
+    }
+}
+
 private extension AnnotationViewController {
     func setupAnnotationViewPosition() {
         let rightBarButtonFrames = extractRightBarButtonConvertedFrames()
@@ -95,19 +109,5 @@ private extension AnnotationViewController {
             first: firstRightBarButtonItem.convert(firstRightBarButtonItem.bounds, to: view),
             second: secondRightBarButtonItem.convert(secondRightBarButtonItem.bounds, to: view)
         )
-    }
-}
-
-extension AnnotationViewController: SpotlightViewControllerDelegate {
-    func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool) {
-        next(false)
-    }
-    
-    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool) {
-        next(true)
-    }
-    
-    func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool) {
-        spotlightView.disappear()
     }
 }
