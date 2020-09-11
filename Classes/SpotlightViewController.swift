@@ -25,8 +25,7 @@ open class SpotlightViewController: UIViewController {
     }()
     
     public let spotlightView = SpotlightView()
-    public let contentView = UIView()
-    
+
     open var alpha: CGFloat = 0.5
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -48,7 +47,6 @@ open class SpotlightViewController: UIViewController {
         super.viewDidLoad()
         
         setupSpotlightView(alpha)
-        setupContentView()
         setupTapGesture()
         
         view.backgroundColor = UIColor.clear
@@ -65,15 +63,6 @@ open class SpotlightViewController: UIViewController {
         view.insertSubview(spotlightView, at: 0)
         view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
             NSLayoutConstraint(item: view!, attribute: $0, relatedBy: .equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
-            })
-    }
-    
-    fileprivate func setupContentView() {
-        contentView.frame = view.bounds
-        contentView.backgroundColor = UIColor.clear
-        view.addSubview(contentView)
-        view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
-            NSLayoutConstraint(item: view!, attribute: $0, relatedBy: .equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
             })
     }
     
