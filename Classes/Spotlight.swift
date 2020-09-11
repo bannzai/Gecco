@@ -25,32 +25,32 @@ public extension SpotlightType {
     }
 }
 
-open class Spotlight {
-    open class Oval: SpotlightType {
-        open var frame: CGRect
+public struct Spotlight {
+    public struct Oval: SpotlightType {
+        public var frame: CGRect
         public init(frame: CGRect) {
             self.frame = frame
         }
         
-        public convenience init(center: CGPoint, diameter: CGFloat) {
+        public init(center: CGPoint, diameter: CGFloat) {
             let frame = CGRect(x: center.x - diameter / 2, y: center.y - diameter / 2, width: diameter, height: diameter)
             self.init(frame: frame)
         }
         
-        public convenience init(view: UIView, margin: CGFloat) {
+        public init(view: UIView, margin: CGFloat) {
             let origin = view.superview!.convert(view.frame.origin, to: view.window!.screen.fixedCoordinateSpace)
             let center = CGPoint(x: origin.x + view.bounds.width / 2, y: origin.y + view.bounds.height / 2)
             let diameter = max(view.bounds.width, view.bounds.height) + margin * 2
             self.init(center: center, diameter: diameter)
         }
         
-        open var path: UIBezierPath {
+        public var path: UIBezierPath {
             return UIBezierPath(roundedRect: frame, cornerRadius: frame.width / 2)
         }
     }
     
-    open class Rect: SpotlightType {
-        open var frame: CGRect
+    public struct Rect: SpotlightType {
+        public var frame: CGRect
         public init(frame: CGRect) {
             self.frame = frame
         }
@@ -67,24 +67,33 @@ open class Spotlight {
             self.frame = CGRect(origin: origin, size: size)
         }
         
-        open var path: UIBezierPath {
+        public var path: UIBezierPath {
             return UIBezierPath(roundedRect: frame, cornerRadius: 0)
         }
     }
     
-    open class RoundedRect: Rect {
-        open var cornerRadius: CGFloat
+    public struct RoundedRect: SpotlightType {
+        public var frame: CGRect
+        public var cornerRadius: CGFloat
+        public init(frame: CGRect, cornerRadius: CGFloat) {
+            self.frame = frame
+            self.cornerRadius = cornerRadius
+        }
+
         public init(center: CGPoint, size: CGSize, cornerRadius: CGFloat) {
-            self.cornerRadius = cornerRadius
-            super.init(center: center, size: size)
+            let frame = CGRect(x: center.x - size.width / 2, y: center.y - size.height / 2, width: size.width, height: size.height)
+            self.init(frame: frame, cornerRadius: cornerRadius)
         }
-        
+
         public init(view: UIView, margin: CGFloat, cornerRadius: CGFloat) {
-            self.cornerRadius = cornerRadius
-            super.init(view: view, margin: margin)
+            let viewOrigin = view.superview!.convert(view.frame.origin, to: view.window!.screen.fixedCoordinateSpace)
+            let origin = CGPoint(x: viewOrigin.x - margin, y: viewOrigin.y - margin)
+            let size = CGSize(width: view.bounds.width + margin * 2, height: view.bounds.height + margin * 2)
+            let frame = CGRect(origin: origin, size: size)
+            self.init(frame: frame, cornerRadius: cornerRadius)
         }
-        
-        open override var path: UIBezierPath {
+
+        public var path: UIBezierPath {
             return UIBezierPath(roundedRect: frame, cornerRadius: cornerRadius)
         }
     }
