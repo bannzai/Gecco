@@ -40,9 +40,6 @@ open class SpotlightView: UIView {
         maskLayer.frame = frame
     }
     
-}
-
-extension SpotlightView {
     open func appear(_ spotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         maskLayer.add(appearAnimation(duration, spotlight: spotlight), forKey: nil)
         self.spotlight = spotlight
@@ -55,19 +52,29 @@ extension SpotlightView {
     open func move(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration, moveType: SpotlightMoveType = .direct) {
         switch moveType {
         case .direct:
-            maskLayer.add(moveAnimation(duration, toSpotlight: toSpotlight), forKey: nil)
-            spotlight = toSpotlight
+            moveDirect(toSpotlight, duration: duration)
         case .disappear:
-            CATransaction.begin()
-            CATransaction.setCompletionBlock {
-                self.appear(toSpotlight, duration: duration)
-                self.spotlight = toSpotlight
-            }
-            disappear(duration)
-            CATransaction.commit()
+            moveDisappear(toSpotlight, duration: duration)
         }
     }
+}
 
+extension SpotlightView {
+    fileprivate func moveDirect(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+        maskLayer.add(moveAnimation(duration, toSpotlight: toSpotlight), forKey: nil)
+        spotlight = toSpotlight
+    }
+    
+    fileprivate func moveDisappear(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            self.appear(toSpotlight, duration: duration)
+            self.spotlight = toSpotlight
+        }
+        disappear(duration)
+        CATransaction.commit()
+    }
+    
     fileprivate func maskPath(_ path: UIBezierPath) -> UIBezierPath {
         [path].reduce(into: UIBezierPath(rect: frame)) { $0.append($1) }
     }
