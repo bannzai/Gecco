@@ -55,15 +55,21 @@ open class SpotlightView: UIView {
     }
     
     open func appear(_ spotlights: [SpotlightType], duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+        spotlights.forEach { delegate?.spotlightWillAppear(spotlightView: self, spotlight: $0) }
+        defer { spotlights.forEach { delegate?.spotlightDidAppear(spotlightView: self, spotlight: $0) } }
         maskLayer.add(appearAnimation(duration, spotlights: spotlights), forKey: nil)
         self.spotlights.append(contentsOf: spotlights)
     }
     
     open func disappear(_ duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+        spotlights.forEach { delegate?.spotlightWillDisappear(spotlightView: self, spotlight: $0) }
+        defer { spotlights.forEach { delegate?.spotlightDidDisappear(spotlightView: self, spotlight: $0) } }
         maskLayer.add(disappearAnimation(duration), forKey: nil)
     }
    
     open func move(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration, moveType: SpotlightMoveType = .direct) {
+        spotlights.forEach { delegate?.spotlightWillMove(spotlightView: self, spotlight: $0, moveType: moveType) }
+        defer { spotlights.forEach { delegate?.spotlightDidMove(spotlightView: self, spotlight: $0, moveType: moveType) } }
         switch moveType {
         case .direct:
             moveDirect(toSpotlight, duration: duration)
