@@ -8,10 +8,10 @@
 
 import UIKit
 
-@objc public protocol SpotlightViewControllerDelegate: class {
-    @objc optional func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool)
-    @objc optional func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool)
-    @objc optional func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool)
+public protocol SpotlightViewControllerDelegate: class {
+    func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool)
+    func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool)
+    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, tappedSpotlight: SpotlightType?)
 }
 
 open class SpotlightViewController: UIViewController {
@@ -71,18 +71,18 @@ open class SpotlightViewController: UIViewController {
 extension SpotlightViewController {
     @objc func viewTapped(_ gesture: UITapGestureRecognizer) {
         let touchPoint = gesture.location(in: spotlightView)
-        let isInside = spotlightView.spotlight?.frame.contains(touchPoint) ?? false
-        delegate?.spotlightViewControllerTapped?(self, isInsideSpotlight: isInside)
+        let tappedSpotlight = spotlightView.spotlights.first(where: { $0.frame.contains(touchPoint) })
+        delegate?.spotlightViewControllerTapped(self, tappedSpotlight: tappedSpotlight)
     }
 }
 
 extension SpotlightViewController: SpotlightTransitionControllerDelegate {
     func spotlightTransitionWillPresent(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
-        delegate?.spotlightViewControllerWillPresent?(self, animated: transitionContext.isAnimated)
+        delegate?.spotlightViewControllerWillPresent(self, animated: transitionContext.isAnimated)
     }
     
     func spotlightTransitionWillDismiss(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
-        delegate?.spotlightViewControllerWillDismiss?(self, animated: transitionContext.isAnimated)
+        delegate?.spotlightViewControllerWillDismiss(self, animated: transitionContext.isAnimated)
     }
 }
 
