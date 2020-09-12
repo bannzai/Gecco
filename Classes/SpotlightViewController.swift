@@ -8,16 +8,18 @@
 
 import UIKit
 
-public protocol SpotlightViewControllerDelegate: class {
+public protocol SpotlightViewControllerDelegate: AnyObject {
     func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool)
     func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool)
     func spotlightViewControllerTapped(_ viewController: SpotlightViewController, tappedSpotlight: SpotlightType?)
 }
 
+public typealias SpotlightViewAndControllerDelegate = SpotlightViewControllerDelegate & SpotlightViewDelegate
+
 open class SpotlightViewController: UIViewController {
     
     open weak var delegate: SpotlightViewControllerDelegate?
-    
+
     private lazy var transitionController: SpotlightTransitionController = {
         let controller = SpotlightTransitionController()
         controller.delegate = self
@@ -39,6 +41,7 @@ open class SpotlightViewController: UIViewController {
     }
     
     private func commonInit() {
+        spotlightView.delegate = self
         modalPresentationStyle = .overCurrentContext
         transitioningDelegate = self
     }
@@ -83,6 +86,27 @@ extension SpotlightViewController: SpotlightTransitionControllerDelegate {
     
     func spotlightTransitionWillDismiss(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
         delegate?.spotlightViewControllerWillDismiss(self, animated: transitionContext.isAnimated)
+    }
+}
+
+extension SpotlightViewController: SpotlightViewDelegate {
+    public func spotlightWillShow(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightWillShow(spotlightView: spotlightView, spotlight: spotlight)
+    }
+    public func spotlightDidShow(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightDidShow(spotlightView: spotlightView, spotlight: spotlight)
+    }
+    public func spotlightWillHide(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightWillHide(spotlightView: spotlightView, spotlight: spotlight)
+    }
+    public func spotlightDidHide(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightDidHide(spotlightView: spotlightView, spotlight: spotlight)
+    }
+    public func spotlightWillMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightWillMove(spotlightView: spotlightView, spotlight: spotlight, moveType: moveType)
+    }
+    public func spotlightDidMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightDidMove(spotlightView: spotlightView, spotlight: spotlight, moveType: moveType)
     }
 }
 

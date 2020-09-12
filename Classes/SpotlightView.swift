@@ -8,9 +8,18 @@
 
 import UIKit
 
+public protocol SpotlightViewDelegate: AnyObject {
+    func spotlightWillShow(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightDidShow(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightWillHide(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightDidHide(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightWillMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType)
+    func spotlightDidMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType)
+}
+
 open class SpotlightView: UIView {
     public static let defaultAnimateDuration: TimeInterval = 0.25
-    
+
     private lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.fillRule = .evenOdd
@@ -18,8 +27,9 @@ open class SpotlightView: UIView {
         return layer
     }()
     
-    var spotlights: [SpotlightType] = []
-    
+    internal var spotlights: [SpotlightType] = []
+    public weak var delegate: SpotlightViewDelegate?
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
