@@ -90,17 +90,17 @@ extension SpotlightViewController: SpotlightTransitionControllerDelegate {
 }
 
 extension SpotlightViewController: SpotlightViewDelegate {
-    public func spotlightWillShow(spotlightView: SpotlightView, spotlight: SpotlightType) {
-        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightWillShow(spotlightView: spotlightView, spotlight: spotlight)
+    public func spotlightWillAppear(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightWillAppear(spotlightView: spotlightView, spotlight: spotlight)
     }
-    public func spotlightDidShow(spotlightView: SpotlightView, spotlight: SpotlightType) {
-        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightDidShow(spotlightView: spotlightView, spotlight: spotlight)
+    public func spotlightDidAppear(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightDidAppear(spotlightView: spotlightView, spotlight: spotlight)
     }
-    public func spotlightWillHide(spotlightView: SpotlightView, spotlight: SpotlightType) {
-        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightWillHide(spotlightView: spotlightView, spotlight: spotlight)
+    public func spotlightWillDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightWillDisappear(spotlightView: spotlightView, spotlight: spotlight)
     }
-    public func spotlightDidHide(spotlightView: SpotlightView, spotlight: SpotlightType) {
-        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightDidHide(spotlightView: spotlightView, spotlight: spotlight)
+    public func spotlightDidDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        (delegate as? SpotlightViewAndControllerDelegate)?.spotlightDidDisappear(spotlightView: spotlightView, spotlight: spotlight)
     }
     public func spotlightWillMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) {
         (delegate as? SpotlightViewAndControllerDelegate)?.spotlightWillMove(spotlightView: spotlightView, spotlight: spotlight, moveType: moveType)

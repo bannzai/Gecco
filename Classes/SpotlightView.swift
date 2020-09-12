@@ -9,10 +9,10 @@
 import UIKit
 
 public protocol SpotlightViewDelegate: AnyObject {
-    func spotlightWillShow(spotlightView: SpotlightView, spotlight: SpotlightType)
-    func spotlightDidShow(spotlightView: SpotlightView, spotlight: SpotlightType)
-    func spotlightWillHide(spotlightView: SpotlightView, spotlight: SpotlightType)
-    func spotlightDidHide(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightWillAppear(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightDidAppear(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightWillDisappear(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightDidDisappear(spotlightView: SpotlightView, spotlight: SpotlightType)
     func spotlightWillMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType)
     func spotlightDidMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType)
 }
