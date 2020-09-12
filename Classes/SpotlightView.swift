@@ -17,6 +17,15 @@ public protocol SpotlightViewDelegate: AnyObject {
     func spotlightDidMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType)
 }
 
+public extension SpotlightViewDelegate {
+    func spotlightWillAppear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
+    func spotlightDidAppear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
+    func spotlightWillDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
+    func spotlightDidDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
+    func spotlightWillMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) { }
+    func spotlightDidMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) { }
+}
+
 open class SpotlightView: UIView {
     public static let defaultAnimateDuration: TimeInterval = 0.25
 
