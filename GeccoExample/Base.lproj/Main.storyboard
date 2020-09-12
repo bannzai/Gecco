@@ -71,6 +71,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Multiple spotlight" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GK-Uh-d0U">
+                                <rect key="frame" x="175" y="75" width="133" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Appear spotlight on view." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fah-CI-bfM">
                                 <rect key="frame" x="109.5" y="75" width="198.5" height="22.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -105,10 +112,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="320"/>
                     <connections>
-                        <outletCollection property="annotationViews" destination="fah-CI-bfM" collectionClass="NSMutableArray" id="8YQ-Ox-4md"/>
-                        <outletCollection property="annotationViews" destination="j1A-yK-Ogk" collectionClass="NSMutableArray" id="HOI-GB-3cu"/>
-                        <outletCollection property="annotationViews" destination="wa0-41-Snl" collectionClass="NSMutableArray" id="Ub1-zw-Uaj"/>
-                        <outletCollection property="annotationViews" destination="Qjx-3h-ych" collectionClass="NSMutableArray" id="5tr-Pw-rUg"/>
+                        <outletCollection property="annotationViews" destination="8GK-Uh-d0U" collectionClass="NSMutableArray" id="0Nm-VO-3m6"/>
+                        <outletCollection property="annotationViews" destination="fah-CI-bfM" collectionClass="NSMutableArray" id="rA1-ps-cYd"/>
+                        <outletCollection property="annotationViews" destination="j1A-yK-Ogk" collectionClass="NSMutableArray" id="K1g-Rd-kUL"/>
+                        <outletCollection property="annotationViews" destination="wa0-41-Snl" collectionClass="NSMutableArray" id="EWg-vW-RvL"/>
+                        <outletCollection property="annotationViews" destination="Qjx-3h-ych" collectionClass="NSMutableArray" id="wEc-OF-Wg9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNh-QX-ZIH" userLabel="First Responder" sceneMemberID="firstResponder"/>

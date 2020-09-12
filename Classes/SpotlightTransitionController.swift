@@ -30,7 +30,7 @@ class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitio
         }
     }
     
-    fileprivate func animateTransitionForPresent(_ transitionContext: UIViewControllerContextTransitioning) {
+    private func animateTransitionForPresent(_ transitionContext: UIViewControllerContextTransitioning) {
         guard let source = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
             let destination = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
                 fatalError()
@@ -62,7 +62,7 @@ class SpotlightTransitionController: NSObject, UIViewControllerAnimatedTransitio
         CATransaction.commit()
     }
     
-    fileprivate func animateTransitionForDismiss(_ transitionContext: UIViewControllerContextTransitioning) {
+    private func animateTransitionForDismiss(_ transitionContext: UIViewControllerContextTransitioning) {
         guard let source = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
             let destination = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
                 fatalError()

@@ -8,25 +8,24 @@
 
 import UIKit
 
-@objc public protocol SpotlightViewControllerDelegate: class {
-    @objc optional func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool)
-    @objc optional func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool)
-    @objc optional func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool)
+public protocol SpotlightViewControllerDelegate: class {
+    func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool)
+    func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool)
+    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, tappedSpotlight: SpotlightType?)
 }
 
 open class SpotlightViewController: UIViewController {
     
     open weak var delegate: SpotlightViewControllerDelegate?
     
-    fileprivate lazy var transitionController: SpotlightTransitionController = {
+    private lazy var transitionController: SpotlightTransitionController = {
         let controller = SpotlightTransitionController()
         controller.delegate = self
         return controller
     }()
     
     public let spotlightView = SpotlightView()
-    public let contentView = UIView()
-    
+
     open var alpha: CGFloat = 0.5
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -39,7 +38,7 @@ open class SpotlightViewController: UIViewController {
         commonInit()
     }
     
-    fileprivate func commonInit() {
+    private func commonInit() {
         modalPresentationStyle = .overCurrentContext
         transitioningDelegate = self
     }
@@ -48,36 +47,22 @@ open class SpotlightViewController: UIViewController {
         super.viewDidLoad()
         
         setupSpotlightView(alpha)
-        setupContentView()
         setupTapGesture()
         
         view.backgroundColor = UIColor.clear
     }
     
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    fileprivate func setupSpotlightView(_ alpha: CGFloat) {
+    private func setupSpotlightView(_ alpha: CGFloat) {
         spotlightView.frame = view.bounds
         spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: alpha)
         spotlightView.isUserInteractionEnabled = false
         view.insertSubview(spotlightView, at: 0)
         view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
             NSLayoutConstraint(item: view!, attribute: $0, relatedBy: .equal, toItem: spotlightView, attribute: $0, multiplier: 1, constant: 0)
-            })
+        })
     }
     
-    fileprivate func setupContentView() {
-        contentView.frame = view.bounds
-        contentView.backgroundColor = UIColor.clear
-        view.addSubview(contentView)
-        view.addConstraints([NSLayoutConstraint.Attribute.top, .bottom, .left, .right].map {
-            NSLayoutConstraint(item: view!, attribute: $0, relatedBy: .equal, toItem: contentView, attribute: $0, multiplier: 1, constant: 0)
-            })
-    }
-    
-    fileprivate func setupTapGesture() {
+    private func setupTapGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(SpotlightViewController.viewTapped(_:)));
         view.addGestureRecognizer(gesture)
     }
@@ -86,18 +71,18 @@ open class SpotlightViewController: UIViewController {
 extension SpotlightViewController {
     @objc func viewTapped(_ gesture: UITapGestureRecognizer) {
         let touchPoint = gesture.location(in: spotlightView)
-        let isInside = spotlightView.spotlight?.frame.contains(touchPoint) ?? false
-        delegate?.spotlightViewControllerTapped?(self, isInsideSpotlight: isInside)
+        let tappedSpotlight = spotlightView.spotlights.first(where: { $0.frame.contains(touchPoint) })
+        delegate?.spotlightViewControllerTapped(self, tappedSpotlight: tappedSpotlight)
     }
 }
 
 extension SpotlightViewController: SpotlightTransitionControllerDelegate {
     func spotlightTransitionWillPresent(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
-        delegate?.spotlightViewControllerWillPresent?(self, animated: transitionContext.isAnimated)
+        delegate?.spotlightViewControllerWillPresent(self, animated: transitionContext.isAnimated)
     }
     
     func spotlightTransitionWillDismiss(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
-        delegate?.spotlightViewControllerWillDismiss?(self, animated: transitionContext.isAnimated)
+        delegate?.spotlightViewControllerWillDismiss(self, animated: transitionContext.isAnimated)
     }
 }
 
