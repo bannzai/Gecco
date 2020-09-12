@@ -31,14 +31,16 @@ class AnnotationViewController: SpotlightViewController {
         let rightBarButtonFrames = extractRightBarButtonConvertedFrames()
         switch stepIndex {
         case 0:
-            spotlightView.appear(Spotlight.Oval(center: CGPoint(x: rightBarButtonFrames.first.midX, y: rightBarButtonFrames.first.midY), diameter: 50))
+            spotlightView.appear([Spotlight.Oval(center: CGPoint(x: rightBarButtonFrames.first.midX, y: rightBarButtonFrames.first.midY), diameter: 50), Spotlight.Oval(center: CGPoint(x: rightBarButtonFrames.second.midX, y: rightBarButtonFrames.second.midY), diameter: 50)])
         case 1:
-            spotlightView.move(Spotlight.Oval(center: CGPoint(x: rightBarButtonFrames.second.midX, y: rightBarButtonFrames.second.midY), diameter: 50))
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: rightBarButtonFrames.first.midX, y: rightBarButtonFrames.first.midY), diameter: 50), moveType: .disappear)
         case 2:
-            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIApplication.shared.statusBarFrame.height + navigationBarHeight / 2), size: CGSize(width: 120, height: 40), cornerRadius: 6), moveType: .disappear)
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: rightBarButtonFrames.second.midX, y: rightBarButtonFrames.second.midY), diameter: 50), moveType: .direct)
         case 3:
-            spotlightView.move(Spotlight.Oval(center: CGPoint(x: UIScreen.main.bounds.size.width / 2, y: 200 + view.safeAreaInsets.top), diameter: 220), moveType: .disappear)
+            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIApplication.shared.statusBarFrame.height + navigationBarHeight / 2), size: CGSize(width: 120, height: 40), cornerRadius: 6), moveType: .disappear)
         case 4:
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: UIScreen.main.bounds.size.width / 2, y: 200 + view.safeAreaInsets.top), diameter: 220), moveType: .disappear)
+        case 5:
             dismiss(animated: true, completion: nil)
         default:
             break
@@ -79,11 +81,14 @@ private extension AnnotationViewController {
                 annotationView.frame.origin.x = UIScreen.main.bounds.width - annotationView.frame.size.width - 20
                 annotationView.frame.origin.y = rightBarButtonFrames.first.origin.y + 60
             case 1:
+                annotationView.frame.origin.x = UIScreen.main.bounds.width - annotationView.frame.size.width - 20
+                annotationView.frame.origin.y = rightBarButtonFrames.first.origin.y + 60
+            case 2:
                 annotationView.frame.origin.x = rightBarButtonFrames.second.origin.x - annotationView.frame.size.width / 2
                 annotationView.frame.origin.y = rightBarButtonFrames.second.origin.y + 60
-            case 2:
-                annotationView.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIApplication.shared.statusBarFrame.height + navigationBarHeight + 20)
             case 3:
+                annotationView.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIApplication.shared.statusBarFrame.height + navigationBarHeight + 20)
+            case 4:
                 annotationView.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: 200 + view.safeAreaInsets.top)
             default:
                 fatalError("unexpected index \(offset) for \(annotationView)")
