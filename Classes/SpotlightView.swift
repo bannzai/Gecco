@@ -8,9 +8,27 @@
 
 import UIKit
 
+public protocol SpotlightViewDelegate: AnyObject {
+    func spotlightWillAppear(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightDidAppear(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightWillDisappear(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightDidDisappear(spotlightView: SpotlightView, spotlight: SpotlightType)
+    func spotlightWillMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType)
+    func spotlightDidMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType)
+}
+
+public extension SpotlightViewDelegate {
+    func spotlightWillAppear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
+    func spotlightDidAppear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
+    func spotlightWillDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
+    func spotlightDidDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
+    func spotlightWillMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType) { }
+    func spotlightDidMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType) { }
+}
+
 open class SpotlightView: UIView {
     public static let defaultAnimateDuration: TimeInterval = 0.25
-    
+
     private lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.fillRule = .evenOdd
@@ -18,8 +36,9 @@ open class SpotlightView: UIView {
         return layer
     }()
     
-    var spotlights: [SpotlightType] = []
-    
+    internal var spotlights: [SpotlightType] = []
+    public weak var delegate: SpotlightViewDelegate?
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -45,15 +64,21 @@ open class SpotlightView: UIView {
     }
     
     open func appear(_ spotlights: [SpotlightType], duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+        spotlights.forEach { delegate?.spotlightWillAppear(spotlightView: self, spotlight: $0) }
+        defer { spotlights.forEach { delegate?.spotlightDidAppear(spotlightView: self, spotlight: $0) } }
         maskLayer.add(appearAnimation(duration, spotlights: spotlights), forKey: nil)
         self.spotlights.append(contentsOf: spotlights)
     }
     
     open func disappear(_ duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+        spotlights.forEach { delegate?.spotlightWillDisappear(spotlightView: self, spotlight: $0) }
+        defer { spotlights.forEach { delegate?.spotlightDidDisappear(spotlightView: self, spotlight: $0) } }
         maskLayer.add(disappearAnimation(duration), forKey: nil)
     }
    
     open func move(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration, moveType: SpotlightMoveType = .direct) {
+        spotlights.forEach { delegate?.spotlightWillMove(spotlightView: self, spotlight: (from: $0, to: toSpotlight), moveType: moveType) }
+        defer { spotlights.forEach { delegate?.spotlightDidMove(spotlightView: self, spotlight: (from: $0, to: toSpotlight), moveType: moveType) } }
         switch moveType {
         case .direct:
             moveDirect(toSpotlight, duration: duration)

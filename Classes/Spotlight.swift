@@ -26,7 +26,7 @@ public extension SpotlightType {
 }
 
 public struct Spotlight {
-    public struct Oval: SpotlightType {
+    public struct Oval: SpotlightType, Equatable {
         public var frame: CGRect
         public init(frame: CGRect) {
             self.frame = frame
@@ -49,7 +49,7 @@ public struct Spotlight {
         }
     }
     
-    public struct Rect: SpotlightType {
+    public struct Rect: SpotlightType, Equatable {
         public var frame: CGRect
         public init(frame: CGRect) {
             self.frame = frame
@@ -72,7 +72,7 @@ public struct Spotlight {
         }
     }
     
-    public struct RoundedRect: SpotlightType {
+    public struct RoundedRect: SpotlightType, Equatable {
         public var frame: CGRect
         public var cornerRadius: CGFloat
         public init(frame: CGRect, cornerRadius: CGFloat) {

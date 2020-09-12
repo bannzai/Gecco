@@ -8,16 +8,18 @@
 
 import UIKit
 
-public protocol SpotlightViewControllerDelegate: class {
+public protocol SpotlightViewControllerDelegate: AnyObject {
     func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool)
     func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool)
     func spotlightViewControllerTapped(_ viewController: SpotlightViewController, tappedSpotlight: SpotlightType?)
 }
 
+public typealias SpotlightViewAndControllerDelegate = SpotlightViewControllerDelegate & SpotlightViewDelegate
+
 open class SpotlightViewController: UIViewController {
     
     open weak var delegate: SpotlightViewControllerDelegate?
-    
+
     private lazy var transitionController: SpotlightTransitionController = {
         let controller = SpotlightTransitionController()
         controller.delegate = self
