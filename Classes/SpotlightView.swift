@@ -18,7 +18,7 @@ open class SpotlightView: UIView {
         return layer
     }()
     
-    var spotlight: SpotlightType?
+    var spotlights: [SpotlightType] = []
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,8 +41,12 @@ open class SpotlightView: UIView {
     }
     
     open func appear(_ spotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
-        maskLayer.add(appearAnimation(duration, spotlight: spotlight), forKey: nil)
-        self.spotlight = spotlight
+        appear([spotlight], duration: duration)
+    }
+    
+    open func appear(_ spotlights: [SpotlightType], duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
+        maskLayer.add(appearAnimation(duration, spotlights: spotlights), forKey: nil)
+        self.spotlights.append(contentsOf: spotlights)
     }
     
     open func disappear(_ duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
@@ -62,14 +66,14 @@ open class SpotlightView: UIView {
 extension SpotlightView {
     private func moveDirect(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         maskLayer.add(moveAnimation(duration, toSpotlight: toSpotlight), forKey: nil)
-        spotlight = toSpotlight
+        spotlights = [toSpotlight]
     }
     
     private func moveDisappear(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             self.appear(toSpotlight, duration: duration)
-            self.spotlight = toSpotlight
+            self.spotlights = [toSpotlight]
         }
         disappear(duration)
         CATransaction.commit()
@@ -79,22 +83,25 @@ extension SpotlightView {
         [path].reduce(into: UIBezierPath(rect: frame)) { $0.append($1) }
     }
     
-    private func appearAnimation(_ duration: TimeInterval, spotlight: SpotlightType) -> CAAnimation {
-        let beginPath = maskPath(spotlight.infinitesmalPath)
-        let endPath = maskPath(spotlight.path)
-        return pathAnimation(duration, beginPath: beginPath, endPath: endPath)
+    private func appearAnimation(_ duration: TimeInterval, spotlights: [SpotlightType]) -> CAAnimation {
+        typealias PathAnimationPair = (begin: UIBezierPath?, end: UIBezierPath)
+        let pair = spotlights.reduce(into: PathAnimationPair(begin: .init(rect: frame), end: .init(rect: frame))) { (result, spotlight) in
+            result.begin?.append(spotlight.infinitesmalPath)
+            result.end.append(spotlight.path)
+        }
+        return pathAnimation(duration, beginPath: pair.begin, endPath: pair.end)
     }
     
     private func disappearAnimation(_ duration: TimeInterval) -> CAAnimation {
-        let endPath = maskPath(spotlight!.infinitesmalPath)
-        return pathAnimation(duration, beginPath: nil, endPath: endPath)
+        let convergence = spotlights.removeLast()
+        return pathAnimation(duration, beginPath: nil, endPath: maskPath(convergence.infinitesmalPath))
     }
     
     private func moveAnimation(_ duration: TimeInterval, toSpotlight: SpotlightType) -> CAAnimation {
         let endPath = maskPath(toSpotlight.path)
         return pathAnimation(duration, beginPath: nil, endPath: endPath)
     }
-    
+
     private func pathAnimation(_ duration: TimeInterval, beginPath: UIBezierPath?, endPath: UIBezierPath) -> CAAnimation {
         let animation = CABasicAnimation(keyPath: "path")
         animation.duration = duration
