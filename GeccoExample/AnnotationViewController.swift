@@ -13,11 +13,13 @@ class AnnotationViewController: SpotlightViewController {
     @IBOutlet var annotationViews: [UIView]!
     
     var stepIndex: Int = 0
+    lazy var geccoSpotlight = Spotlight.Oval(center: CGPoint(x: UIScreen.main.bounds.size.width / 2, y: 200 + view.safeAreaInsets.top), diameter: 220)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         delegate = self
+        spotlightView.delegate = self
     }
 
     override func viewDidLayoutSubviews() {
@@ -39,7 +41,7 @@ class AnnotationViewController: SpotlightViewController {
         case 3:
             spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIApplication.shared.statusBarFrame.height + navigationBarHeight / 2), size: CGSize(width: 120, height: 40), cornerRadius: 6), moveType: .disappear)
         case 4:
-            spotlightView.move(Spotlight.Oval(center: CGPoint(x: UIScreen.main.bounds.size.width / 2, y: 200 + view.safeAreaInsets.top), diameter: 220), moveType: .disappear)
+            spotlightView.move(geccoSpotlight, moveType: .disappear)
         case 5:
             dismiss(animated: true, completion: nil)
         default:
@@ -55,6 +57,15 @@ class AnnotationViewController: SpotlightViewController {
                 view.alpha = index == self.stepIndex ? 1 : 0
             }
         }
+    }
+}
+
+extension AnnotationViewController: SpotlightViewDelegate {
+    func spotlightWillAppear(spotlightView: SpotlightView, spotlight: SpotlightType) {
+        print("\(#function): \(spotlight)")
+    }
+    func spotlightWillMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType) {
+        print("\(#function): \(spotlight) is gecco spotlight?: \((spotlight.to as? Spotlight.Oval) == geccoSpotlight)")
     }
 }
 
