@@ -18,7 +18,7 @@ open class SpotlightViewController: UIViewController {
     
     open weak var delegate: SpotlightViewControllerDelegate?
     
-    fileprivate lazy var transitionController: SpotlightTransitionController = {
+    private lazy var transitionController: SpotlightTransitionController = {
         let controller = SpotlightTransitionController()
         controller.delegate = self
         return controller
@@ -38,7 +38,7 @@ open class SpotlightViewController: UIViewController {
         commonInit()
     }
     
-    fileprivate func commonInit() {
+    private func commonInit() {
         modalPresentationStyle = .overCurrentContext
         transitioningDelegate = self
     }
@@ -52,7 +52,7 @@ open class SpotlightViewController: UIViewController {
         view.backgroundColor = UIColor.clear
     }
     
-    fileprivate func setupSpotlightView(_ alpha: CGFloat) {
+    private func setupSpotlightView(_ alpha: CGFloat) {
         spotlightView.frame = view.bounds
         spotlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: alpha)
         spotlightView.isUserInteractionEnabled = false
@@ -62,7 +62,7 @@ open class SpotlightViewController: UIViewController {
             })
     }
     
-    fileprivate func setupTapGesture() {
+    private func setupTapGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(SpotlightViewController.viewTapped(_:)));
         view.addGestureRecognizer(gesture)
     }
