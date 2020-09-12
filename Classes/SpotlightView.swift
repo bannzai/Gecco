@@ -69,10 +69,7 @@ extension SpotlightView {
     }
 
     fileprivate func maskPath(_ path: UIBezierPath) -> UIBezierPath {
-        return [path].reduce(UIBezierPath(rect: frame)) {
-            $0.append($1)
-            return $0
-        }
+        [path].reduce(into: UIBezierPath(rect: frame)) { $0.append($1) }
     }
     
     fileprivate func appearAnimation(_ duration: TimeInterval, spotlight: SpotlightType) -> CAAnimation {
