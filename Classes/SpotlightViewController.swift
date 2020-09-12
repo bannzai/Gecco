@@ -19,12 +19,6 @@ public typealias SpotlightViewAndControllerDelegate = SpotlightViewControllerDel
 open class SpotlightViewController: UIViewController {
     
     open weak var delegate: SpotlightViewControllerDelegate?
-    open var spotlightViewDelegateProxy: SpotlightViewDelegate? {
-        if delegate === self {
-            return nil
-        }
-        return (delegate as? SpotlightViewDelegate)
-    }
 
     private lazy var transitionController: SpotlightTransitionController = {
         let controller = SpotlightTransitionController()
@@ -47,7 +41,6 @@ open class SpotlightViewController: UIViewController {
     }
     
     private func commonInit() {
-        spotlightView.delegate = self
         modalPresentationStyle = .overCurrentContext
         transitioningDelegate = self
     }
@@ -92,27 +85,6 @@ extension SpotlightViewController: SpotlightTransitionControllerDelegate {
     
     func spotlightTransitionWillDismiss(_ controller: SpotlightTransitionController, transitionContext: UIViewControllerContextTransitioning) {
         delegate?.spotlightViewControllerWillDismiss(self, animated: transitionContext.isAnimated)
-    }
-}
-
-extension SpotlightViewController: SpotlightViewDelegate {
-    public func spotlightWillAppear(spotlightView: SpotlightView, spotlight: SpotlightType) {
-        spotlightViewDelegateProxy?.spotlightWillAppear(spotlightView: spotlightView, spotlight: spotlight)
-    }
-    public func spotlightDidAppear(spotlightView: SpotlightView, spotlight: SpotlightType) {
-        spotlightViewDelegateProxy?.spotlightDidAppear(spotlightView: spotlightView, spotlight: spotlight)
-    }
-    public func spotlightWillDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) {
-        spotlightViewDelegateProxy?.spotlightWillDisappear(spotlightView: spotlightView, spotlight: spotlight)
-    }
-    public func spotlightDidDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) {
-        spotlightViewDelegateProxy?.spotlightDidDisappear(spotlightView: spotlightView, spotlight: spotlight)
-    }
-    public func spotlightWillMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) {
-        spotlightViewDelegateProxy?.spotlightWillMove(spotlightView: spotlightView, spotlight: spotlight, moveType: moveType)
-    }
-    public func spotlightDidMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) {
-        spotlightViewDelegateProxy?.spotlightDidMove(spotlightView: spotlightView, spotlight: spotlight, moveType: moveType)
     }
 }
 
