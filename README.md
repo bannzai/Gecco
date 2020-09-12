@@ -43,12 +43,5 @@ pod 'Gecco'
 github "yukiasai/Gecco"
 ```
 
-## Feature
-
-- [ ] Simple notes label　on the spotlight
-- [ ] Rotation
-- [ ] Swift2.3
-
 ## License
-
 Gecco is released under the MIT license. See LICENSE for details.
