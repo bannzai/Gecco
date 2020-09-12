@@ -13,8 +13,8 @@ public protocol SpotlightViewDelegate: AnyObject {
     func spotlightDidAppear(spotlightView: SpotlightView, spotlight: SpotlightType)
     func spotlightWillDisappear(spotlightView: SpotlightView, spotlight: SpotlightType)
     func spotlightDidDisappear(spotlightView: SpotlightView, spotlight: SpotlightType)
-    func spotlightWillMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType)
-    func spotlightDidMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType)
+    func spotlightWillMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType)
+    func spotlightDidMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType)
 }
 
 public extension SpotlightViewDelegate {
@@ -22,8 +22,8 @@ public extension SpotlightViewDelegate {
     func spotlightDidAppear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
     func spotlightWillDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
     func spotlightDidDisappear(spotlightView: SpotlightView, spotlight: SpotlightType) { }
-    func spotlightWillMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) { }
-    func spotlightDidMove(spotlightView: SpotlightView, spotlight: SpotlightType, moveType: SpotlightMoveType) { }
+    func spotlightWillMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType) { }
+    func spotlightDidMove(spotlightView: SpotlightView, spotlight: (from: SpotlightType, to: SpotlightType), moveType: SpotlightMoveType) { }
 }
 
 open class SpotlightView: UIView {
@@ -77,8 +77,8 @@ open class SpotlightView: UIView {
     }
    
     open func move(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration, moveType: SpotlightMoveType = .direct) {
-        spotlights.forEach { delegate?.spotlightWillMove(spotlightView: self, spotlight: $0, moveType: moveType) }
-        defer { spotlights.forEach { delegate?.spotlightDidMove(spotlightView: self, spotlight: $0, moveType: moveType) } }
+        spotlights.forEach { delegate?.spotlightWillMove(spotlightView: self, spotlight: (from: $0, to: toSpotlight), moveType: moveType) }
+        defer { spotlights.forEach { delegate?.spotlightDidMove(spotlightView: self, spotlight: (from: $0, to: toSpotlight), moveType: moveType) } }
         switch moveType {
         case .direct:
             moveDirect(toSpotlight, duration: duration)
