@@ -61,10 +61,10 @@ extension AnnotationViewController: SpotlightViewControllerDelegate {
         next(false)
     }
     
-    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool) {
+    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, tappedSpotlight: SpotlightType?) {
         next(true)
     }
-    
+
     func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool) {
         spotlightView.disappear()
     }
