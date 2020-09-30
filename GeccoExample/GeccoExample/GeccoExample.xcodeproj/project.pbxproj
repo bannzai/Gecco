@@ -13,6 +13,7 @@
 		3331D7C825245CC900E2FD9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3331D7C625245CC900E2FD9D /* Main.storyboard */; };
 		3331D7CA25245CCB00E2FD9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3331D7C925245CCB00E2FD9D /* Assets.xcassets */; };
 		3331D7CD25245CCB00E2FD9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3331D7CB25245CCB00E2FD9D /* LaunchScreen.storyboard */; };
+		3331D7D625245D6800E2FD9D /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7D525245D6800E2FD9D /* AnnotationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3331D7C925245CCB00E2FD9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3331D7CC25245CCB00E2FD9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3331D7CE25245CCB00E2FD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3331D7D525245D6800E2FD9D /* AnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				3331D7C025245CC900E2FD9D /* AppDelegate.swift */,
 				3331D7C225245CC900E2FD9D /* SceneDelegate.swift */,
+				3331D7D525245D6800E2FD9D /* AnnotationViewController.swift */,
 				3331D7C425245CC900E2FD9D /* ViewController.swift */,
 				3331D7C625245CC900E2FD9D /* Main.storyboard */,
 				3331D7C925245CCB00E2FD9D /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 				3331D7C525245CC900E2FD9D /* ViewController.swift in Sources */,
 				3331D7C125245CC900E2FD9D /* AppDelegate.swift in Sources */,
 				3331D7C325245CC900E2FD9D /* SceneDelegate.swift in Sources */,
+				3331D7D625245D6800E2FD9D /* AnnotationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
