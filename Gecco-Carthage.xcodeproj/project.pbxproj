@@ -1,0 +1,631 @@
+// !$*UTF8*$!
+{
+   archiveVersion = "1";
+   objectVersion = "46";
+   objects = {
+      "Gecco::Gecco" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_27";
+         buildPhases = (
+            "OBJ_30",
+            "OBJ_35"
+         );
+         dependencies = (
+         );
+         name = "Gecco";
+         productName = "Gecco";
+         productReference = "Gecco::Gecco::Product";
+         productType = "com.apple.product-type.framework";
+      };
+      "Gecco::Gecco::Product" = {
+         isa = "PBXFileReference";
+         path = "Gecco.framework";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "Gecco::GeccoPackageTests::ProductTarget" = {
+         isa = "PBXAggregateTarget";
+         buildConfigurationList = "OBJ_43";
+         buildPhases = (
+         );
+         dependencies = (
+            "OBJ_46"
+         );
+         name = "GeccoPackageTests";
+         productName = "GeccoPackageTests";
+      };
+      "Gecco::GeccoTests" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_48";
+         buildPhases = (
+            "OBJ_51",
+            "OBJ_53"
+         );
+         dependencies = (
+            "OBJ_55"
+         );
+         name = "GeccoTests";
+         productName = "GeccoTests";
+         productReference = "Gecco::GeccoTests::Product";
+         productType = "com.apple.product-type.bundle.unit-test";
+      };
+      "Gecco::GeccoTests::Product" = {
+         isa = "PBXFileReference";
+         path = "GeccoTests.xctest";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "Gecco::SwiftPMPackageDescription" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_37";
+         buildPhases = (
+            "OBJ_40"
+         );
+         dependencies = (
+         );
+         name = "GeccoPackageDescription";
+         productName = "GeccoPackageDescription";
+         productType = "com.apple.product-type.framework";
+      };
+      "OBJ_1" = {
+         isa = "PBXProject";
+         attributes = {
+            LastSwiftMigration = "9999";
+            LastUpgradeCheck = "9999";
+         };
+         buildConfigurationList = "OBJ_2";
+         compatibilityVersion = "Xcode 3.2";
+         developmentRegion = "en";
+         hasScannedForEncodings = "0";
+         knownRegions = (
+            "en"
+         );
+         mainGroup = "OBJ_5";
+         productRefGroup = "OBJ_17";
+         projectDirPath = ".";
+         targets = (
+            "Gecco::Gecco",
+            "Gecco::SwiftPMPackageDescription",
+            "Gecco::GeccoPackageTests::ProductTarget",
+            "Gecco::GeccoTests"
+         );
+      };
+      "OBJ_10" = {
+         isa = "PBXFileReference";
+         path = "SpotlightTransitionController.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_11" = {
+         isa = "PBXFileReference";
+         path = "SpotlightView.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_12" = {
+         isa = "PBXFileReference";
+         path = "SpotlightViewController.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_13" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_14"
+         );
+         name = "Tests";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_14" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_15",
+            "OBJ_16"
+         );
+         name = "GeccoTests";
+         path = "Tests/GeccoTests";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_15" = {
+         isa = "PBXFileReference";
+         path = "Info.plist";
+         sourceTree = "<group>";
+      };
+      "OBJ_16" = {
+         isa = "PBXFileReference";
+         path = "GeccoTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_17" = {
+         isa = "PBXGroup";
+         children = (
+            "Gecco::Gecco::Product",
+            "Gecco::GeccoTests::Product"
+         );
+         name = "Products";
+         path = "";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "OBJ_2" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_3",
+            "OBJ_4"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_20" = {
+         isa = "PBXFileReference";
+         path = "Gecco";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_21" = {
+         isa = "PBXFileReference";
+         path = "GeccoExample";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_22" = {
+         isa = "PBXFileReference";
+         path = "LICENSE";
+         sourceTree = "<group>";
+      };
+      "OBJ_23" = {
+         isa = "PBXFileReference";
+         path = "Makefile";
+         sourceTree = "<group>";
+      };
+      "OBJ_24" = {
+         isa = "PBXFileReference";
+         path = "Gecco.podspec";
+         sourceTree = "<group>";
+      };
+      "OBJ_25" = {
+         isa = "PBXFileReference";
+         path = "README.md";
+         sourceTree = "<group>";
+      };
+      "OBJ_27" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_28",
+            "OBJ_29"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_28" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Gecco.xcodeproj/Gecco_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "11.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "Gecco";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)",
+               "DEBUG_GEDATSU"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "Gecco";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_29" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Gecco.xcodeproj/Gecco_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "11.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "Gecco";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)",
+               "DEBUG_GEDATSU"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "Gecco";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
+      "OBJ_3" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_OBJC_ARC = "YES";
+            COMBINE_HIDPI_IMAGES = "YES";
+            COPY_PHASE_STRIP = "NO";
+            DEBUG_INFORMATION_FORMAT = "dwarf";
+            DYLIB_INSTALL_NAME_BASE = "@rpath";
+            ENABLE_NS_ASSERTIONS = "YES";
+            GCC_OPTIMIZATION_LEVEL = "0";
+            GCC_PREPROCESSOR_DEFINITIONS = (
+               "$(inherited)",
+               "SWIFT_PACKAGE=1",
+               "DEBUG=1"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            ONLY_ACTIVE_ARCH = "YES";
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-DXcode"
+            );
+            PRODUCT_NAME = "$(TARGET_NAME)";
+            SDKROOT = "macosx";
+            SUPPORTED_PLATFORMS = (
+               "macosx",
+               "iphoneos",
+               "iphonesimulator",
+               "appletvos",
+               "appletvsimulator",
+               "watchos",
+               "watchsimulator"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)",
+               "SWIFT_PACKAGE",
+               "DEBUG"
+            );
+            SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+            USE_HEADERMAP = "NO";
+         };
+         name = "Debug";
+      };
+      "OBJ_30" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_31",
+            "OBJ_32",
+            "OBJ_33",
+            "OBJ_34"
+         );
+      };
+      "OBJ_31" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_9";
+      };
+      "OBJ_32" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_10";
+      };
+      "OBJ_33" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_11";
+      };
+      "OBJ_34" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_12";
+      };
+      "OBJ_35" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
+      };
+      "OBJ_37" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_38",
+            "OBJ_39"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_38" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "-package-description-version",
+               "5.2.0"
+            );
+            SWIFT_VERSION = "5.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_39" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "-package-description-version",
+               "5.2.0"
+            );
+            SWIFT_VERSION = "5.0";
+         };
+         name = "Release";
+      };
+      "OBJ_4" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_OBJC_ARC = "YES";
+            COMBINE_HIDPI_IMAGES = "YES";
+            COPY_PHASE_STRIP = "YES";
+            DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+            DYLIB_INSTALL_NAME_BASE = "@rpath";
+            GCC_OPTIMIZATION_LEVEL = "s";
+            GCC_PREPROCESSOR_DEFINITIONS = (
+               "$(inherited)",
+               "SWIFT_PACKAGE=1"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-DXcode"
+            );
+            PRODUCT_NAME = "$(TARGET_NAME)";
+            SDKROOT = "macosx";
+            SUPPORTED_PLATFORMS = (
+               "macosx",
+               "iphoneos",
+               "iphonesimulator",
+               "appletvos",
+               "appletvsimulator",
+               "watchos",
+               "watchsimulator"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)",
+               "SWIFT_PACKAGE"
+            );
+            SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+            USE_HEADERMAP = "NO";
+         };
+         name = "Release";
+      };
+      "OBJ_40" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_41"
+         );
+      };
+      "OBJ_41" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_6";
+      };
+      "OBJ_43" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_44",
+            "OBJ_45"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_44" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Debug";
+      };
+      "OBJ_45" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
+      };
+      "OBJ_46" = {
+         isa = "PBXTargetDependency";
+         target = "Gecco::GeccoTests";
+      };
+      "OBJ_48" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_49",
+            "OBJ_50"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_49" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Gecco.xcodeproj/GeccoTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "14.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.15";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)",
+               "DEBUG_GEDATSU"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "GeccoTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_5" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_6",
+            "OBJ_7",
+            "OBJ_13",
+            "OBJ_17",
+            "OBJ_20",
+            "OBJ_21",
+            "OBJ_22",
+            "OBJ_23",
+            "OBJ_24",
+            "OBJ_25"
+         );
+         path = "";
+         sourceTree = "<group>";
+      };
+      "OBJ_50" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Gecco.xcodeproj/GeccoTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "14.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.15";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)",
+               "DEBUG_GEDATSU"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "GeccoTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
+      "OBJ_51" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_52"
+         );
+      };
+      "OBJ_52" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_16";
+      };
+      "OBJ_53" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_54"
+         );
+      };
+      "OBJ_54" = {
+         isa = "PBXBuildFile";
+         fileRef = "Gecco::Gecco::Product";
+      };
+      "OBJ_55" = {
+         isa = "PBXTargetDependency";
+         target = "Gecco::Gecco";
+      };
+      "OBJ_6" = {
+         isa = "PBXFileReference";
+         explicitFileType = "sourcecode.swift";
+         path = "Package.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_7" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_8"
+         );
+         name = "Sources";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_8" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_9",
+            "OBJ_10",
+            "OBJ_11",
+            "OBJ_12"
+         );
+         name = "Gecco";
+         path = "Sources/Gecco";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_9" = {
+         isa = "PBXFileReference";
+         path = "Spotlight.swift";
+         sourceTree = "<group>";
+      };
+   };
+   rootObject = "OBJ_1";
+}
