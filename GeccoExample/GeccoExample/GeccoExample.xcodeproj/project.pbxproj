@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332A3F612524623F000A2B78 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A3F602524623F000A2B78 /* Gecco.framework */; };
+		332A3F622524623F000A2B78 /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 332A3F602524623F000A2B78 /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3331D7C125245CC900E2FD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7C025245CC900E2FD9D /* AppDelegate.swift */; };
 		3331D7C325245CC900E2FD9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7C225245CC900E2FD9D /* SceneDelegate.swift */; };
 		3331D7C525245CC900E2FD9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7C425245CC900E2FD9D /* ViewController.swift */; };
@@ -16,7 +18,22 @@
 		3331D7D625245D6800E2FD9D /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7D525245D6800E2FD9D /* AnnotationViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		332A3F632524623F000A2B78 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				332A3F622524623F000A2B78 /* Gecco.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		332A3F602524623F000A2B78 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gecco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3331D7BD25245CC900E2FD9D /* GeccoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeccoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3331D7C025245CC900E2FD9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3331D7C225245CC900E2FD9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,17 +50,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332A3F612524623F000A2B78 /* Gecco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		332A3F5F2524623F000A2B78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				332A3F602524623F000A2B78 /* Gecco.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3331D7B425245CC900E2FD9D = {
 			isa = PBXGroup;
 			children = (
 				3331D7BF25245CC900E2FD9D /* GeccoExample */,
 				3331D7BE25245CC900E2FD9D /* Products */,
+				332A3F5F2524623F000A2B78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +107,7 @@
 				3331D7B925245CC900E2FD9D /* Sources */,
 				3331D7BA25245CC900E2FD9D /* Frameworks */,
 				3331D7BB25245CC900E2FD9D /* Resources */,
+				332A3F632524623F000A2B78 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
