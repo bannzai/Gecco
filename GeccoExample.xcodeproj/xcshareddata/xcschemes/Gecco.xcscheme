@@ -17,7 +17,7 @@
                BlueprintIdentifier = "467D205C1C48883C0033D5CA"
                BuildableName = "Gecco.framework"
                BlueprintName = "Gecco"
-               ReferencedContainer = "container:Gecco.xcodeproj">
+               ReferencedContainer = "container:GeccoExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,7 +33,7 @@
             BlueprintIdentifier = "467D205C1C48883C0033D5CA"
             BuildableName = "Gecco.framework"
             BlueprintName = "Gecco"
-            ReferencedContainer = "container:Gecco.xcodeproj">
+            ReferencedContainer = "container:GeccoExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -44,7 +44,7 @@
                BlueprintIdentifier = "467D20661C48883C0033D5CA"
                BuildableName = "Gecco.xctest"
                BlueprintName = "GeccoTests"
-               ReferencedContainer = "container:Gecco.xcodeproj">
+               ReferencedContainer = "container:GeccoExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,7 +65,7 @@
             BlueprintIdentifier = "467D205C1C48883C0033D5CA"
             BuildableName = "Gecco.framework"
             BlueprintName = "Gecco"
-            ReferencedContainer = "container:Gecco.xcodeproj">
+            ReferencedContainer = "container:GeccoExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -81,7 +81,7 @@
             BlueprintIdentifier = "467D205C1C48883C0033D5CA"
             BuildableName = "Gecco.framework"
             BlueprintName = "Gecco"
-            ReferencedContainer = "container:Gecco.xcodeproj">
+            ReferencedContainer = "container:GeccoExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -13,10 +13,6 @@
 		46C6AE311C4DF9EA004AAE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE1E1C4DF9A8004AAE2F /* Main.storyboard */; };
 		46C6AE321C4DF9EF004AAE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C6AE1C1C4DF9A8004AAE2F /* LaunchScreen.storyboard */; };
 		46C6AE341C4DF9F7004AAE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE211C4DF9A8004AAE2F /* ViewController.swift */; };
-		46C6AE361C4DFA01004AAE2F /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637231C4B07EB0000AF22 /* Spotlight.swift */; };
-		46C6AE371C4DFA01004AAE2F /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A637201C49CEB00000AF22 /* SpotlightView.swift */; };
-		46C6AE381C4DFA01004AAE2F /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20B21C488D620033D5CA /* SpotlightViewController.swift */; };
-		46C6AE391C4DFA01004AAE2F /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */; };
 		46C6AE3A1C4DFA22004AAE2F /* GeccoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE241C4DF9A8004AAE2F /* GeccoTests.swift */; };
 		46C6AE421C4E0A5E004AAE2F /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AE411C4E0A5E004AAE2F /* AnnotationViewController.swift */; };
 		B6EBAB771D8A477A004297E0 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 467D205D1C48883C0033D5CA /* Gecco.framework */; };
@@ -36,10 +32,6 @@
 		467D205D1C48883C0033D5CA /* Gecco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gecco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D20671C48883C0033D5CA /* Gecco.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gecco.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D20811C488C920033D5CA /* GeccoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeccoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		467D20B21C488D620033D5CA /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
-		467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SpotlightTransitionController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		46A637201C49CEB00000AF22 /* SpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SpotlightView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		46A637231C4B07EB0000AF22 /* Spotlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Spotlight.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		46C6AE181C4DF9A8004AAE2F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46C6AE1A1C4DF9A8004AAE2F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46C6AE1B1C4DF9A8004AAE2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +74,6 @@
 		467D20531C48883C0033D5CA = {
 			isa = PBXGroup;
 			children = (
-				467D20781C48889F0033D5CA /* Classes */,
 				46C6AE161C4DF9A8004AAE2F /* Gecco */,
 				46C6AE191C4DF9A8004AAE2F /* GeccoExample */,
 				46C6AE221C4DF9A8004AAE2F /* GeccoTests */,
@@ -98,17 +89,6 @@
 				467D20811C488C920033D5CA /* GeccoExample.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		467D20781C48889F0033D5CA /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				46A637231C4B07EB0000AF22 /* Spotlight.swift */,
-				46A637201C49CEB00000AF22 /* SpotlightView.swift */,
-				467D20B21C488D620033D5CA /* SpotlightViewController.swift */,
-				467D20BB1C4DBF810033D5CA /* SpotlightTransitionController.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		46C6AE161C4DF9A8004AAE2F /* Gecco */ = {
@@ -232,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 467D20571C48883C0033D5CA /* Build configuration list for PBXProject "Gecco" */;
+			buildConfigurationList = 467D20571C48883C0033D5CA /* Build configuration list for PBXProject "GeccoExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -284,10 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46C6AE391C4DFA01004AAE2F /* SpotlightTransitionController.swift in Sources */,
-				46C6AE361C4DFA01004AAE2F /* Spotlight.swift in Sources */,
-				46C6AE381C4DFA01004AAE2F /* SpotlightViewController.swift in Sources */,
-				46C6AE371C4DFA01004AAE2F /* SpotlightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +523,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		467D20571C48883C0033D5CA /* Build configuration list for PBXProject "Gecco" */ = {
+		467D20571C48883C0033D5CA /* Build configuration list for PBXProject "GeccoExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				467D206F1C48883C0033D5CA /* Debug */,
