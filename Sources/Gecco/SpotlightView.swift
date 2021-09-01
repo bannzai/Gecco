@@ -36,7 +36,10 @@ open class SpotlightView: UIView {
         return layer
     }()
     
-    internal var spotlights: [SpotlightType] = []
+    internal var _spotlights: [SpotlightType] = []
+    public var spotlights: [SpotlightType] {
+        return _spotlights
+    }
     public weak var delegate: SpotlightViewDelegate?
 
     public override init(frame: CGRect) {
@@ -67,18 +70,18 @@ open class SpotlightView: UIView {
         spotlights.forEach { delegate?.spotlightWillAppear(spotlightView: self, spotlight: $0) }
         defer { spotlights.forEach { delegate?.spotlightDidAppear(spotlightView: self, spotlight: $0) } }
         maskLayer.add(appearAnimation(duration, spotlights: spotlights), forKey: nil)
-        self.spotlights.append(contentsOf: spotlights)
+        self._spotlights.append(contentsOf: spotlights)
     }
     
     open func disappear(_ duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
-        spotlights.forEach { delegate?.spotlightWillDisappear(spotlightView: self, spotlight: $0) }
-        defer { spotlights.forEach { delegate?.spotlightDidDisappear(spotlightView: self, spotlight: $0) } }
+        _spotlights.forEach { delegate?.spotlightWillDisappear(spotlightView: self, spotlight: $0) }
+        defer { _spotlights.forEach { delegate?.spotlightDidDisappear(spotlightView: self, spotlight: $0) } }
         maskLayer.add(disappearAnimation(duration), forKey: nil)
     }
    
     open func move(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration, moveType: SpotlightMoveType = .direct) {
-        spotlights.forEach { delegate?.spotlightWillMove(spotlightView: self, spotlight: (from: $0, to: toSpotlight), moveType: moveType) }
-        defer { spotlights.forEach { delegate?.spotlightDidMove(spotlightView: self, spotlight: (from: $0, to: toSpotlight), moveType: moveType) } }
+        _spotlights.forEach { delegate?.spotlightWillMove(spotlightView: self, spotlight: (from: $0, to: toSpotlight), moveType: moveType) }
+        defer { _spotlights.forEach { delegate?.spotlightDidMove(spotlightView: self, spotlight: (from: $0, to: toSpotlight), moveType: moveType) } }
         switch moveType {
         case .direct:
             moveDirect(toSpotlight, duration: duration)
@@ -91,14 +94,14 @@ open class SpotlightView: UIView {
 extension SpotlightView {
     private func moveDirect(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         maskLayer.add(moveAnimation(duration, toSpotlight: toSpotlight), forKey: nil)
-        spotlights = [toSpotlight]
+        _spotlights = [toSpotlight]
     }
     
     private func moveDisappear(_ toSpotlight: SpotlightType, duration: TimeInterval = SpotlightView.defaultAnimateDuration) {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             self.appear(toSpotlight, duration: duration)
-            self.spotlights = [toSpotlight]
+            self._spotlights = [toSpotlight]
         }
         disappear(duration)
         CATransaction.commit()
@@ -118,7 +121,7 @@ extension SpotlightView {
     }
     
     private func disappearAnimation(_ duration: TimeInterval) -> CAAnimation {
-        let convergence = spotlights.removeLast()
+        let convergence = _spotlights.removeLast()
         return pathAnimation(duration, beginPath: nil, endPath: maskPath(convergence.infinitesmalPath))
     }
     
