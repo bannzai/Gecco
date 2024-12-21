@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2053CF702D17864E007C671B /* Gecco in Frameworks */ = {isa = PBXBuildFile; productRef = 2053CF6F2D17864E007C671B /* Gecco */; };
-		332A3F7125246406000A2B78 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A3F7025246406000A2B78 /* Gecco.framework */; };
-		332A3F7225246406000A2B78 /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 332A3F7025246406000A2B78 /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3331D7C125245CC900E2FD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7C025245CC900E2FD9D /* AppDelegate.swift */; };
 		3331D7C325245CC900E2FD9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7C225245CC900E2FD9D /* SceneDelegate.swift */; };
 		3331D7C525245CC900E2FD9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7C425245CC900E2FD9D /* ViewController.swift */; };
@@ -18,20 +16,6 @@
 		3331D7CD25245CCB00E2FD9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3331D7CB25245CCB00E2FD9D /* LaunchScreen.storyboard */; };
 		3331D7D625245D6800E2FD9D /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7D525245D6800E2FD9D /* AnnotationViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		332A3F7325246406000A2B78 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				332A3F7225246406000A2B78 /* Gecco.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		332A3F602524623F000A2B78 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gecco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2053CF702D17864E007C671B /* Gecco in Frameworks */,
-				332A3F7125246406000A2B78 /* Gecco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +94,6 @@
 				3331D7B925245CC900E2FD9D /* Sources */,
 				3331D7BA25245CC900E2FD9D /* Frameworks */,
 				3331D7BB25245CC900E2FD9D /* Resources */,
-				332A3F7325246406000A2B78 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
