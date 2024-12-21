@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2053CF702D17864E007C671B /* Gecco in Frameworks */ = {isa = PBXBuildFile; productRef = 2053CF6F2D17864E007C671B /* Gecco */; };
 		332A3F7125246406000A2B78 /* Gecco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332A3F7025246406000A2B78 /* Gecco.framework */; };
 		332A3F7225246406000A2B78 /* Gecco.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 332A3F7025246406000A2B78 /* Gecco.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3331D7C125245CC900E2FD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3331D7C025245CC900E2FD9D /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2053CF702D17864E007C671B /* Gecco in Frameworks */,
 				332A3F7125246406000A2B78 /* Gecco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +145,9 @@
 				Base,
 			);
 			mainGroup = 3331D7B425245CC900E2FD9D;
+			packageReferences = (
+				2053CF6E2D17864E007C671B /* XCLocalSwiftPackageReference "../../Gecco" */,
+			);
 			productRefGroup = 3331D7BE25245CC900E2FD9D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -373,6 +378,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		2053CF6E2D17864E007C671B /* XCLocalSwiftPackageReference "../../Gecco" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../Gecco;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2053CF6F2D17864E007C671B /* Gecco */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Gecco;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3331D7B525245CC900E2FD9D /* Project object */;
 }
