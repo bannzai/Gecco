@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		332A3F602524623F000A2B78 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gecco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		332A3F7025246406000A2B78 /* Gecco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gecco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3331D7BD25245CC900E2FD9D /* GeccoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeccoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3331D7BD25245CC900E2FD9D /* GeccoExample-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeccoExample-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3331D7C025245CC900E2FD9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3331D7C225245CC900E2FD9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3331D7C425245CC900E2FD9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		3331D7B425245CC900E2FD9D = {
 			isa = PBXGroup;
 			children = (
-				3331D7BF25245CC900E2FD9D /* GeccoExample */,
+				3331D7BF25245CC900E2FD9D /* Sources */,
 				3331D7BE25245CC900E2FD9D /* Products */,
 				332A3F5F2524623F000A2B78 /* Frameworks */,
 			);
@@ -64,12 +64,12 @@
 		3331D7BE25245CC900E2FD9D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3331D7BD25245CC900E2FD9D /* GeccoExample.app */,
+				3331D7BD25245CC900E2FD9D /* GeccoExample-UIKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3331D7BF25245CC900E2FD9D /* GeccoExample */ = {
+		3331D7BF25245CC900E2FD9D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				3331D7C025245CC900E2FD9D /* AppDelegate.swift */,
@@ -81,15 +81,15 @@
 				3331D7CB25245CCB00E2FD9D /* LaunchScreen.storyboard */,
 				3331D7CE25245CCB00E2FD9D /* Info.plist */,
 			);
-			path = GeccoExample;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3331D7BC25245CC900E2FD9D /* GeccoExample */ = {
+		3331D7BC25245CC900E2FD9D /* GeccoExample-UIKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3331D7D125245CCB00E2FD9D /* Build configuration list for PBXNativeTarget "GeccoExample" */;
+			buildConfigurationList = 3331D7D125245CCB00E2FD9D /* Build configuration list for PBXNativeTarget "GeccoExample-UIKit" */;
 			buildPhases = (
 				3331D7B925245CC900E2FD9D /* Sources */,
 				3331D7BA25245CC900E2FD9D /* Frameworks */,
@@ -99,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = GeccoExample;
+			name = "GeccoExample-UIKit";
 			productName = GeccoExample;
-			productReference = 3331D7BD25245CC900E2FD9D /* GeccoExample.app */;
+			productReference = 3331D7BD25245CC900E2FD9D /* GeccoExample-UIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +118,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3331D7B825245CC900E2FD9D /* Build configuration list for PBXProject "GeccoExample" */;
+			buildConfigurationList = 3331D7B825245CC900E2FD9D /* Build configuration list for PBXProject "GeccoExample-UIKit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3331D7BC25245CC900E2FD9D /* GeccoExample */,
+				3331D7BC25245CC900E2FD9D /* GeccoExample-UIKit */,
 			);
 		};
 /* End PBXProject section */
@@ -341,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3331D7B825245CC900E2FD9D /* Build configuration list for PBXProject "GeccoExample" */ = {
+		3331D7B825245CC900E2FD9D /* Build configuration list for PBXProject "GeccoExample-UIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3331D7CF25245CCB00E2FD9D /* Debug */,
@@ -350,7 +350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3331D7D125245CCB00E2FD9D /* Build configuration list for PBXNativeTarget "GeccoExample" */ = {
+		3331D7D125245CCB00E2FD9D /* Build configuration list for PBXNativeTarget "GeccoExample-UIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3331D7D225245CCB00E2FD9D /* Debug */,
