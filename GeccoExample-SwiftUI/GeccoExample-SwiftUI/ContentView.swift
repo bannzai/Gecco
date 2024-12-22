@@ -66,12 +66,12 @@ class SpotlightController<T> where T : SpotlightIndex {
     isPresented = false
   }
 
-  func show(at: T) {
-
+  func show(at index: T) {
+    self.index = index
   }
 
-  func hide(at: T) {
-
+  func hide(at index: T) {
+    self.index = index
   }
 
   func next() {
