@@ -85,7 +85,7 @@ class SpotlightController<T> where T : SpotlightIndex {
   }
 }
 
-struct SpotlightFullScreenOverlay: View {
+struct SpotlightFullScreenOverlay<T: SpotlightIndex>: View {
   var opacity: CGFloat = 0.5
   var ignoresSafeAreaEdgeSet: Edge.Set? = .all
 
@@ -98,11 +98,11 @@ struct SpotlightFullScreenOverlay: View {
 
 struct GeccoProvider<Content: View, Index: SpotlightIndex>: View {
   @ViewBuilder let content: (SpotlightController<Index>) -> Content
-  @ViewBuilder let fullScreenOverlay: () -> SpotlightFullScreenOverlay
+  @ViewBuilder let fullScreenOverlay: () -> SpotlightFullScreenOverlay<Index>
 
   init(
     @ViewBuilder content: @escaping ( SpotlightController<Index>) -> Content,
-    @ViewBuilder fullScreenOverlay: @escaping () -> SpotlightFullScreenOverlay = { .init() }
+    @ViewBuilder fullScreenOverlay: @escaping () -> SpotlightFullScreenOverlay<Index> = { .init() }
   ) {
     self.content = content
     self.fullScreenOverlay = fullScreenOverlay
@@ -111,11 +111,20 @@ struct GeccoProvider<Content: View, Index: SpotlightIndex>: View {
   var spotlightController = SpotlightController<Index>()
 
   var body: some View {
-    content(spotlightController)
-      .overlay {
-        fullScreenOverlay()
+    Group {
+      if spotlightController.isPresented {
+        content(spotlightController)
+          .overlay {
+            fullScreenOverlay()
+          }
+          .onTapGesture {
+            spotlightController.next()
+          }
+      } else {
+        content(spotlightController)
       }
-      .environment(spotlightController)
+    }
+    .environment(spotlightController)
   }
 }
 
