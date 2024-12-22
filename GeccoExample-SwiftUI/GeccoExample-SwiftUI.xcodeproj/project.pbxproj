@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		20BE48372D178774004168AD /* Gecco in Frameworks */ = {isa = PBXBuildFile; productRef = 20BE48362D178774004168AD /* Gecco */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		20BE48242D17873A004168AD /* GeccoExample-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeccoExample-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -27,7 +23,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20BE48372D178774004168AD /* Gecco in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +65,6 @@
 			);
 			name = "GeccoExample-SwiftUI";
 			packageProductDependencies = (
-				20BE48362D178774004168AD /* Gecco */,
 			);
 			productName = "GeccoExample-SwiftUI";
 			productReference = 20BE48242D17873A004168AD /* GeccoExample-SwiftUI.app */;
@@ -101,7 +95,6 @@
 			mainGroup = 20BE481B2D17873A004168AD;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				20BE48352D178774004168AD /* XCLocalSwiftPackageReference "../../Gecco" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 20BE48252D17873A004168AD /* Products */;
@@ -333,20 +326,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		20BE48352D178774004168AD /* XCLocalSwiftPackageReference "../../Gecco" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../Gecco;
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		20BE48362D178774004168AD /* Gecco */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Gecco;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 20BE481C2D17873A004168AD /* Project object */;
 }
