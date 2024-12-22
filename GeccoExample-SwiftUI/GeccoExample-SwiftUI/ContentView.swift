@@ -102,7 +102,7 @@ class SpotlightController<Index: SpotlightIndex>: AnyObject {
   }
 }
 
-struct SpotlightFullScreenOverlay<T: SpotlightIndex>: View {
+struct SpotlightFullScreenOverlay<Index: SpotlightIndex>: View {
   var opacity: CGFloat = 0.5
   var ignoresSafeAreaEdgeSet: Edge.Set? = .all
 
@@ -131,8 +131,17 @@ struct GeccoProvider<Content: View, Index: SpotlightIndex>: View {
     Group {
       if spotlightController.isPresented {
         content(spotlightController)
-          .overlay {
-            fullScreenOverlay()
+          .overlayPreferenceValue(SpotlightAnchorPreferenceKey<Index>.self) { values in
+            if let preference = values.first(where: { $0.key == spotlightController.index }) {
+              GeometryReader { proxy in
+                let rect = proxy[preference.value]
+
+                fullScreenOverlay()
+                  .reverseMask(rect: rect) {
+                    RoundedRectangle(cornerRadius: 8)
+                  }
+              }
+            }
           }
           .onTapGesture {
             spotlightController.next()
@@ -145,7 +154,6 @@ struct GeccoProvider<Content: View, Index: SpotlightIndex>: View {
   }
 }
 
-
 struct DefaultGeccoProvider<Content: View>: View {
   @ViewBuilder let content: (SpotlightController<Int>) -> Content
 
@@ -154,84 +162,37 @@ struct DefaultGeccoProvider<Content: View>: View {
   }
 }
 
-struct Spotlight<Index: SpotlightIndex>: View {
-  @Environment(SpotlightController<Index>.self) var spotlightController
+struct SpotlightAnchorPreferenceKey<Index: SpotlightIndex>: PreferenceKey {
+  static var defaultValue: [Index: Anchor<CGRect>] { [:] }
 
-  var body: some View {
-    EmptyView()
-  }
-}
-
-struct SpotlightMask<Index: SpotlightIndex, Shape: SwiftUI.Shape>: View {
-  let index: Index
-  let rect: CGRect
-  let spotlightController: SpotlightController<Index>
-  @ViewBuilder let shape: () -> Shape
-
-  var body: some View {
-    if index == spotlightController.index {
-      mask {
-        Rectangle()
-          .overlay {
-            shape()
-              .frame(width: rect.width, height: rect.height)
-              .offset(x: rect.midX, y: rect.midY)
-              .blendMode(.destinationOut)
-          }
-      }
-    }
-  }
-}
-
-struct SpotlightModifier<Index: SpotlightIndex, Shape: SwiftUI.Shape>: ViewModifier {
-  let index: Index
-  @State var rect: CGRect?
-  @ViewBuilder let shape: () -> Shape
-
-  @Environment(SpotlightController<Index>.self) var spotlightController
-
-  func body(content: Content) -> some View {
-    if index == spotlightController.index {
-      Group {
-        if let rect {
-          content
-            .mask {
-              Rectangle()
-                .overlay {
-                  shape()
-                    .frame(width: rect.width, height: rect.height)
-                    .offset(x: rect.minX, y: rect.minY)
-                    .blendMode(.destinationOut)
-                }
-            }
-        } else {
-          content
-        }
-      }
-      .background {
-        GeometryReader { proxy in
-          Color.clear.onAppear {
-            rect = .init(origin: .zero, size: proxy.size)
-          }
-        }
-      }
-    } else {
-      content
-    }
+  static func reduce(
+    value: inout [Index: Anchor<CGRect>],
+    nextValue: () -> [Index: Anchor<CGRect>]
+  ) {
+    value.merge(nextValue()) { $1 }
   }
 }
 
 extension View {
-  func spotlight<Index: SpotlightIndex, Shape: SwiftUI.Shape>(
-    at index: Index,
+  func spotlight<Index: SpotlightIndex>(at index: Index) -> some View {
+    anchorPreference(key: SpotlightAnchorPreferenceKey<Index>.self, value: .bounds) { [index: $0] }
+  }
+}
+
+extension View {
+  func reverseMask<Shape: SwiftUI.Shape>(
+    rect: CGRect,
     @ViewBuilder shape: @escaping () -> Shape
   ) -> some View {
-    modifier(
-      SpotlightModifier(
-        index: index,
-        shape: shape
-      )
-    )
+    mask {
+      Rectangle()
+        .overlay {
+          shape()
+            .frame(width: rect.width, height: rect.height)
+            .offset(x: rect.midX, y: rect.midY)
+            .blendMode(.destinationOut)
+        }
+    }
   }
 }
 
