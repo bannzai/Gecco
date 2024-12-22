@@ -55,6 +55,7 @@ extension RawRepresentable where Self: SpotlightIndex, Self: CaseIterable {
 
 @Observable
 class SpotlightController<T> where T : SpotlightIndex {
+  var index = T.begin()
   var isPresented = false
 
   func start() {
@@ -71,6 +72,16 @@ class SpotlightController<T> where T : SpotlightIndex {
 
   func hide(at: T) {
 
+  }
+
+  func next() {
+    hide(at: index)
+
+    if let next = index.next() {
+      show(at: next)
+    } else {
+      end()
+    }
   }
 }
 
