@@ -18,6 +18,7 @@ struct ContentView: View {
             }
           } label: {
             Text("Start tutorial")
+              .spotlight(at: 0)
           }
 
           ChildView()
@@ -29,9 +30,6 @@ struct ContentView: View {
 
             } label: {
               Image(systemName: "gear")
-                .spotlight(at: 0) {
-                  RoundedRectangle(cornerRadius: 10)
-                }
             }
           }
         }
@@ -134,11 +132,18 @@ struct GeccoProvider<Content: View, Index: SpotlightIndex>: View {
           .overlayPreferenceValue(SpotlightAnchorPreferenceKey<Index>.self) { values in
             if let preference = values.first(where: { $0.key == spotlightController.index }) {
               GeometryReader { proxy in
-                let rect = proxy[preference.value]
+                let rect = proxy[preference.value.anchor]
 
                 fullScreenOverlay()
                   .reverseMask(rect: rect) {
-                    RoundedRectangle(cornerRadius: 8)
+                    switch preference.value.kind {
+                    case .oval:
+                      Circle()
+                    case .rect:
+                      Rectangle()
+                    case .roundedRectangle:
+                      RoundedRectangle(cornerRadius: 8)
+                    }
                   }
               }
             }
@@ -162,25 +167,36 @@ struct DefaultGeccoProvider<Content: View>: View {
   }
 }
 
+enum SpotlightKind: Hashable {
+  case oval
+  case rect
+  case roundedRectangle(cornerRadius: CGFloat)
+}
+
 struct SpotlightAnchorPreferenceKey<Index: SpotlightIndex>: PreferenceKey {
-  static var defaultValue: [Index: Anchor<CGRect>] { [:] }
+  struct Info: Hashable {
+    let kind: SpotlightKind
+    let anchor: Anchor<CGRect>
+  }
+
+  static var defaultValue: [Index: Info] { [:] }
 
   static func reduce(
-    value: inout [Index: Anchor<CGRect>],
-    nextValue: () -> [Index: Anchor<CGRect>]
+    value: inout [Index: Info],
+    nextValue: () -> [Index: Info]
   ) {
     value.merge(nextValue()) { $1 }
   }
 }
 
 extension View {
-  func spotlight<Index: SpotlightIndex>(at index: Index) -> some View {
-    anchorPreference(key: SpotlightAnchorPreferenceKey<Index>.self, value: .bounds) { [index: $0] }
+  func spotlight<Index: SpotlightIndex>(at index: Index, kind: SpotlightKind = .rect) -> some View {
+    anchorPreference(key: SpotlightAnchorPreferenceKey<Index>.self, value: .bounds) { [index: .init(kind: kind, anchor: $0)] }
   }
 }
 
 extension View {
-  func reverseMask<Shape: SwiftUI.Shape>(
+  func reverseMask<Shape: SwiftUI.View>(
     rect: CGRect,
     @ViewBuilder shape: @escaping () -> Shape
   ) -> some View {
