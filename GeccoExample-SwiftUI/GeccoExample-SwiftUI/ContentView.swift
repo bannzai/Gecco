@@ -29,7 +29,7 @@ struct ContentView: View {
 
             } label: {
               Image(systemName: "gear")
-                .spotlight(at: 0, spotlightController: spotlightController) {
+                .spotlight(at: 0) {
                   RoundedRectangle(cornerRadius: 10)
                 }
             }
@@ -76,6 +76,7 @@ class SpotlightController<Index: SpotlightIndex>: AnyObject {
 
   func end() {
     isPresented = false
+    index = nil
   }
 
   func show(at index: Index) {
@@ -182,17 +183,54 @@ struct SpotlightMask<Index: SpotlightIndex, Shape: SwiftUI.Shape>: View {
   }
 }
 
+struct SpotlightModifier<Index: SpotlightIndex, Shape: SwiftUI.Shape>: ViewModifier {
+  let index: Index
+  @State var rect: CGRect?
+  @ViewBuilder let shape: () -> Shape
+
+  @Environment(SpotlightController<Index>.self) var spotlightController
+
+  func body(content: Content) -> some View {
+    if index == spotlightController.index {
+      Group {
+        if let rect {
+          content
+            .mask {
+              Rectangle()
+                .overlay {
+                  shape()
+                    .frame(width: rect.width, height: rect.height)
+                    .offset(x: rect.minX, y: rect.minY)
+                    .blendMode(.destinationOut)
+                }
+            }
+        } else {
+          content
+        }
+      }
+      .background {
+        GeometryReader { proxy in
+          Color.clear.onAppear {
+            rect = .init(origin: .zero, size: proxy.size)
+          }
+        }
+      }
+    } else {
+      content
+    }
+  }
+}
+
 extension View {
   func spotlight<Index: SpotlightIndex, Shape: SwiftUI.Shape>(
     at index: Index,
-    spotlightController: SpotlightController<Index>,
     @ViewBuilder shape: @escaping () -> Shape
   ) -> some View {
-    SpotlightMask(
-      index: index,
-      rect: .init(x: 0, y: 0, width: 44, height: 44),
-      spotlightController: spotlightController,
-      shape: shape
+    modifier(
+      SpotlightModifier(
+        index: index,
+        shape: shape
+      )
     )
   }
 }
